@@ -58,19 +58,46 @@
             align-items: center;
             margin-top: 20px;
             direction: ltr; /* Ensure left-to-right writing direction */
+            transition: transform 0.3s; /* Smooth transition */
+        }
+        .text-box:hover {
+            transform: scale(1.02); /* Scale effect on hover */
         }
         img {
-            width: 15%; /* Resize image to 15% */
+            width: 10%; /* Resize image to 10% */
             height: auto;
             border: 2px solid #debf76;
             border-radius: 10px;
             margin-right: 20px; /* Space between image and text */
+            transition: transform 0.3s; /* Smooth transition */
+        }
+        img:hover {
+            transform: rotate(5deg); /* Rotate effect on hover */
         }
         .text-content {
             font-size: 22px; /* Increased font size */
             font-weight: bold; /* Make text bold */
             line-height: 1.6;
             max-width: 70%; /* Limit text box width */
+        }
+        .box {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.5s ease-out forwards; /* Animation for boxes */
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .buttons {
             display: flex;
@@ -91,8 +118,10 @@
             text-decoration: none;
             border-radius: 5px;
             animation: pulse 2s infinite; /* Add animation to buttons */
+            transition: background-color 0.3s; /* Smooth background color transition */
         }
         .button:hover {
+            background-color: #c49a4f; /* Change background color on hover */
             opacity: 0.8;
         }
         /* Footer link */
@@ -123,6 +152,12 @@
             }
         }
     </style>
+    <script>
+        // Function to show an alert when the button is clicked
+        function buttonClick() {
+            alert("Thank you for your interest! We'll be in touch.");
+        }
+    </script>
 </head>
 <body>
 
@@ -135,7 +170,7 @@
     <div class="text-box">
         <img src="https://imgur.com/XExoBdT.jpg" alt="Book Image">
         <div class="text-content">
-            <p>Know you inner, inner your strength</p>
+            <p>Know your inner, inner your strength</p>
             <p>The way to motivate yourself</p>
             <p>How to grow in the real-world</p>
             <p>Courage &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Discipline</p>
@@ -144,32 +179,28 @@
 
     <div class="container">
         <div class="box">
-            <h1>Value and Details</h1>
+            <h1>Value</h1>
+            <p>We are here</p>
+            <p>- Understand your personality</p>
+            <p>What are your goals? Why are you striving to achieve them? How to motivate yourself (secret tricks)</p>
+            <p>Understand the psychology of achieving goals</p>
+            <p>How to apply a growth mindset in your life?</p>
+            <p>Where does fear come from? How to overcome it?</p>
+            <p>How to turn fear into a bull you are riding</p>
         </div>
 
-        <div class="section">
-            <h2 class="large-text text-left">Value:</h2>
-            <p class="text-left">We are here</p>
-            <p class="text-left">- Understand your personality</p>
-            <p class="text-left">What are your goals? Why are you striving to achieve them? How to motivate yourself (secret tricks)</p>
-            <p class="text-left">Understand the psychology of achieving goals</p>
-            <p class="text-left">How to apply a growth mindset in your life?</p>
-            <p class="text-left">Where does fear come from? How to overcome it?</p>
-            <p class="text-left">How to turn fear into a bull you are riding</p>
-        </div>
-
-        <div class="section">
-            <h2 class="large-text text-left">Details:</h2>
-            <p class="text-left">Pages: 22</p>
-            <p class="text-left">Chapters: 4</p>
-            <p class="text-left">Chapters: Who are you?, Growth mindset, The most dangerous enemy: Fear, About discipline and habits</p>
-            <p class="text-left">This content aims to empower you by helping you discover your inner strengths, overcome fears, and adopt a growth mindset.</p>
-            <p class="text-left">Join us on this journey to personal growth and self-discovery!</p>
+        <div class="box">
+            <h1>Details</h1>
+            <p>Pages: 25</p> <!-- Updated from 22 to 25 -->
+            <p>Chapters: 4</p>
+            <p>Chapters: Who are you?, Growth mindset, The most dangerous enemy: Fear, About discipline and habits</p>
+            <p>This content aims to empower you by helping you discover your inner strengths, overcome fears, and adopt a growth mindset.</p>
+            <p>Join us on this journey to personal growth and self-discovery!</p>
         </div>
 
         <div class="buttons">
-            <a class="button" href="https://docs.google.com/document/d/11YOr6nbEYpLgqHI4rlDMAIOad9YimLu7/edit?usp=drive_link&ouid=111912314992372195962&rtpof=true&sd=true">Get 1 Free Page</a>
-            <a class="button" href="https://yossef4.gumroad.com/l/knowyourself?_gl=1*an28j3*_ga*MTQwMDk1NDQ5MC4xNzI2ODUzMDY3*_ga_6LJN6D94N6*MTcyNjg1Nzk2My4zLjEuMTcyNjg1ODU2Ny4wLjAuMA..">Buy Now</a>
+            <a class="button" href="https://docs.google.com/document/d/11YOr6nbEYpLgqHI4rlDMAIOad9YimLu7/edit?usp=drive_link&ouid=111912314992372195962&rtpof=true&sd=true" onclick="buttonClick()">Get 1 Free Page</a>
+            <a class="button" href="https://yossef4.gumroad.com/l/knowyourself?_gl=1*an28j3*_ga*MTQwMDk1NDQ5MC4xNzI2ODUzMDY3*_ga_6LJN6D94N6*MTcyNjg1Nzk2My4zLjEuMTcyNjg1ODU2Ny4wLjAuMA.." onclick="buttonClick()">Buy Now</a>
         </div>
 
         <!-- Footer with link -->
