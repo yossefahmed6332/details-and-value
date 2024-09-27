@@ -21,6 +21,9 @@
             animation: fadeInUp 1.5s ease-out forwards; /* Animation */
             max-width: 1200px;
             margin: 0 auto;
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Arrange items in a column */
+            align-items: flex-start; /* Align items to the left */
         }
         .header-box {
             background-color: #000; /* Black background for header box */
@@ -84,6 +87,7 @@
             animation: fadeIn 1.5s ease-out forwards; /* Animation for boxes */
             cursor: pointer; /* Cursor change on hover */
             transition: background-color 0.3s; /* Smooth background color transition */
+            width: 100%; /* Full width for the boxes */
         }
         @keyframes fadeIn {
             0% {
