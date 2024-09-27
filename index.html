@@ -74,12 +74,6 @@
         img:hover {
             transform: rotate(5deg); /* Rotate effect on hover */
         }
-        .text-content {
-            font-size: 22px; /* Increased font size */
-            font-weight: bold; /* Make text bold */
-            line-height: 1.6;
-            max-width: 70%; /* Limit text box width */
-        }
         .box {
             background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
             padding: 20px;
@@ -88,6 +82,8 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeIn 1.5s ease-out forwards; /* Animation for boxes */
+            cursor: pointer; /* Cursor change on hover */
+            transition: background-color 0.3s; /* Smooth background color transition */
         }
         @keyframes fadeIn {
             0% {
@@ -98,6 +94,9 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+        .box:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Slight change on hover */
         }
         .buttons {
             display: flex;
@@ -118,10 +117,8 @@
             text-decoration: none;
             border-radius: 5px;
             animation: pulse 2s infinite; /* Add animation to buttons */
-            transition: background-color 0.3s; /* Smooth background color transition */
         }
         .button:hover {
-            background-color: #c49a4f; /* Change background color on hover */
             opacity: 0.8;
         }
         /* Footer link */
@@ -153,9 +150,10 @@
         }
     </style>
     <script>
-        // Function to show an alert when the button is clicked
-        function buttonClick() {
-            alert("Thank you for your interest! We'll be in touch.");
+        // Function to change background color on box click
+        function changeBoxColor(box) {
+            const currentColor = box.style.backgroundColor;
+            box.style.backgroundColor = (currentColor === 'rgba(255, 255, 255, 0.3)') ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.3)';
         }
     </script>
 </head>
@@ -178,7 +176,7 @@
     </div>
 
     <div class="container">
-        <div class="box">
+        <div class="box" onclick="changeBoxColor(this)">
             <h1>Value</h1>
             <p>We are here</p>
             <p>- Understand your personality</p>
@@ -189,7 +187,7 @@
             <p>How to turn fear into a bull you are riding</p>
         </div>
 
-        <div class="box">
+        <div class="box" onclick="changeBoxColor(this)" style="width: calc(100% - 40px);"> <!-- Reduced width -->
             <h1>Details</h1>
             <p>Pages: 25</p> <!-- Updated from 22 to 25 -->
             <p>Chapters: 4</p>
