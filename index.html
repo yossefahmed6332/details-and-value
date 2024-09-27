@@ -86,7 +86,7 @@
             transform: translateY(20px);
             animation: fadeIn 1.5s ease-out forwards; /* Animation for boxes */
             cursor: pointer; /* Cursor change on hover */
-            transition: background-color 0.3s; /* Smooth background color transition */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
             width: 100%; /* Full width for the boxes */
         }
         @keyframes fadeIn {
@@ -101,6 +101,7 @@
         }
         .box:hover {
             background-color: rgba(255, 255, 255, 0.1); /* Slight change on hover */
+            transform: scale(1.02); /* Scale effect on hover */
         }
         .buttons {
             display: flex;
@@ -121,9 +122,10 @@
             text-decoration: none;
             border-radius: 5px;
             animation: pulse 2s infinite; /* Add animation to buttons */
+            transition: background-color 0.3s; /* Smooth background color transition */
         }
         .button:hover {
-            opacity: 0.8;
+            background-color: #c9a455; /* Darken button on hover */
         }
         /* Footer link */
         .footer {
@@ -150,6 +152,9 @@
             }
             .text-content {
                 font-size: 18px; /* Adjusted font size for mobile */
+            }
+            .box {
+                width: 100%; /* Ensure full width on mobile */
             }
         }
     </style>
