@@ -22,6 +22,27 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        .header-box {
+            background-color: #000; /* Black background for header box */
+            color: #debf76; /* Text color for header */
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1.5s ease-out forwards; /* Animation for the header */
+        }
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
@@ -32,49 +53,22 @@
                 transform: translateY(0);
             }
         }
-        /* Button pulse effect */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
+        .text-box {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            direction: ltr; /* Ensure left-to-right writing direction */
         }
-        /* Slide in effect for headings */
-        @keyframes slideInLeft {
-            0% {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        img {
+            width: 50%; /* Resize image to 50% */
+            height: auto;
+            border: 2px solid #debf76;
+            border-radius: 10px;
+            margin-right: 20px; /* Space between image and text */
         }
-        h1, h2, h3 {
-            color: #debf76;
-            animation: slideInLeft 1s ease-out; /* Add animation to headings */
-        }
-        p {
+        .text-content {
             font-size: 18px;
             line-height: 1.6;
-        }
-        .large-text {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .text-left {
-            text-align: left;
-        }
-        .section {
-            background-color: #4E3B2B; /* Lighter brown for sections */
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
         }
         .buttons {
             display: flex;
@@ -99,29 +93,52 @@
         .button:hover {
             opacity: 0.8;
         }
-        img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border: 2px solid #debf76;
-            border-radius: 10px;
-            margin-top: 20px;
+        /* Footer link */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .footer a {
+            color: #debf76;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            opacity: 0.8;
         }
         /* Responsive improvements */
         @media (max-width: 768px) {
-            .box, img {
-                width: 100%;
+            .text-box {
+                flex-direction: column;
+                align-items: flex-start;
             }
-            p {
+            img {
+                width: 100%; /* Full width on mobile */
+                margin-bottom: 20px;
+            }
+            .text-content {
                 font-size: 16px;
-            }
-            .button {
-                padding: 10px 20px;
             }
         }
     </style>
 </head>
 <body>
+
+    <!-- New header box with "About our book" text -->
+    <div class="header-box">
+        About our book
+    </div>
+
+    <!-- Image and text beside it -->
+    <div class="text-box">
+        <img src="your-image-url.jpg" alt="Book Image">
+        <div class="text-content">
+            <p>Know you inner, inner your strength</p>
+            <p>The way to motivate yourself</p>
+            <p>How to grow in the real-world</p>
+            <p>Courage &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Discipline</p>
+        </div>
+    </div>
 
     <div class="container">
         <div class="box">
@@ -152,6 +169,12 @@
             <a class="button" href="https://docs.google.com/document/d/11YOr6nbEYpLgqHI4rlDMAIOad9YimLu7/edit?usp=drive_link&ouid=111912314992372195962&rtpof=true&sd=true">Get 1 Free Page</a>
             <a class="button" href="https://yossef4.gumroad.com/l/knowyourself?_gl=1*an28j3*_ga*MTQwMDk1NDQ5MC4xNzI2ODUzMDY3*_ga_6LJN6D94N6*MTcyNjg1Nzk2My4zLjEuMTcyNjg1ODU2Ny4wLjAuMA..">Buy Now</a>
         </div>
+
+        <!-- Footer with link -->
+        <div class="footer">
+            <p>If you are interested in psychology <a href="https://www.instagram.com/david_ppr_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">click me</a></p>
+        </div>
+
     </div>
 
 </body>
