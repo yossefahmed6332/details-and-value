@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Know Your Inner Strength</title>
     <style>
-        /* Professional design enhancements */
         body {
             background-color: #3E2723; /* Dark brown background color */
             color: #debf76; /* Text color */
@@ -75,18 +74,17 @@
         img:hover {
             transform: rotate(5deg); /* Rotate effect on hover */
         }
-        .box {
+        .notice-content {
             background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeIn 1.5s ease-out forwards; /* Animation for boxes */
-            cursor: pointer; /* Cursor change on hover */
-            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
-            width: 100%; /* Full width for the boxes */
-            position: relative; /* Positioning for effect */
+            animation: fadeIn 1.5s ease-out forwards; /* Animation for notice */
+            font-size: 18px;
+            line-height: 1.6;
+            font-weight: bold;
         }
         @keyframes fadeIn {
             0% {
@@ -98,90 +96,7 @@
                 transform: translateY(0);
             }
         }
-        .box:hover {
-            background-color: rgba(255, 255, 255, 0.1); /* Slight change on hover */
-            transform: scale(1.02); /* Scale effect on hover */
-        }
-        .buttons {
-            display: flex;
-            justify-content: center; /* Center buttons */
-            gap: 20px;
-            margin-top: 40px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1.5s ease-out forwards; /* Animation for buttons */
-            width: 100%; /* Full width for buttons */
-            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
-        }
-        .button {
-            background-color: #debf76;
-            color: black;
-            padding: 15px 30px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            text-transform: uppercase;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            animation: pulse 2s infinite; /* Add animation to buttons */
-            transition: background-color 0.3s, transform 0.3s; /* Smooth background color transition */
-            flex: 1 1 auto; /* Allow buttons to grow and shrink */
-            max-width: 200px; /* Max width for buttons */
-        }
-        .button:hover {
-            background-color: #c9a455; /* Darken button on hover */
-            transform: scale(1.05); /* Scale effect on hover */
-        }
-        /* Footer link */
-        .footer {
-            margin-top: 40px;
-            text-align: center;
-        }
-        .footer a {
-            color: #debf76;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .footer a:hover {
-            opacity: 0.8;
-        }
-        /* Responsive improvements */
-        @media (max-width: 768px) {
-            .text-box {
-                flex-direction: column; /* Stack text content on top of the image */
-                align-items: center; /* Center align items */
-            }
-            img {
-                margin: 0; /* Remove right margin */
-                margin-bottom: 20px; /* Add bottom margin for spacing */
-                width: 80%; /* Adjusted width for mobile */
-            }
-            .text-content {
-                font-size: 18px; /* Adjusted font size for mobile */
-                text-align: center; /* Center text on mobile */
-            }
-            .box {
-                width: 100%; /* Ensure full width on mobile */
-            }
-        }
-        .text-content {
-            font-weight: bold; /* Make text bold */
-        }
     </style>
-    <script>
-        // Function to change background color on box click
-        function changeBoxColor(box) {
-            const currentColor = box.style.backgroundColor;
-            box.style.backgroundColor = (currentColor === 'rgba(255, 255, 255, 0.3)') ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.3)';
-        }
-
-        // Function to show an alert on button click
-        function buttonClick(message) {
-            alert(message);
-        }
-    </script>
 </head>
 <body>
 
@@ -190,19 +105,22 @@
         About our book
     </div>
 
-    <!-- Image only -->
+    <!-- Image and Notice Section -->
     <div class="text-box">
         <img src="https://imgur.com/XExoBdT.jpg" alt="Book Image">
-        <div class="text-content">
-            <p>Know your inner, inner your strength</p>
-            <p>The way to motivate yourself</p>
-            <p>How to grow in the real-world</p>
-            <p>An e-book that teaches you how to be consistent in learning</p>
-            <p>and not to fear; you just need to dive into this world and experience it</p>
-            <p><strong>sourage</strong> <strong>discipline</strong></p>
+        <div class="notice-content">
+            <p>Notice:</p>
+            <ul>
+                <li>This content is only intended for specific people</li>
+                <li>Those who are unable to be organized and persevere</li>
+                <li>Always distracted</li>
+                <li>This book provides you with assistance in taking your first step into the real world</li>
+                <li>If you do not have goals and accept your failure, I will be wasting your time if you continue reading</li>
+            </ul>
         </div>
     </div>
 
+    <!-- Rest of the content -->
     <div class="container">
         <div style="display: flex; flex-wrap: wrap; gap: 20px; width: 100%;">
             <div class="box" onclick="changeBoxColor(this)">
