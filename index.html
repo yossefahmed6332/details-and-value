@@ -57,19 +57,17 @@
         }
         .text-box {
             display: flex;
-            align-items: flex-start; /* Align items to the top */
+            justify-content: space-between; /* Space between image and text */
             margin-top: 20px;
-            direction: ltr; /* Ensure left-to-right writing direction */
-            transition: transform 0.3s; /* Smooth transition */
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            direction: rtl; /* Right-to-left writing direction */
         }
         img {
-            width: 15%; /* Resize image to 15% of the container */
+            width: 20%; /* Resize image to 20% of the container */
             height: auto;
             border: 2px solid #debf76;
             border-radius: 10px;
-            margin-right: 20px; /* Space between image and text */
             transition: transform 0.3s; /* Smooth transition */
+            margin-right: 20px;
         }
         img:hover {
             transform: rotate(5deg); /* Rotate effect on hover */
@@ -100,6 +98,22 @@
         .box:hover {
             background-color: rgba(255, 255, 255, 0.1); /* Slight change on hover */
             transform: scale(1.02); /* Scale effect on hover */
+        }
+        .text-content {
+            width: 50%; /* Width for the text beside the image */
+        }
+        .notice {
+            background-color: rgba(255, 255, 255, 0.1); /* Light background for notice text */
+            padding: 20px;
+            border-radius: 8px;
+            line-height: 1.5;
+            text-align: left; /* Align text to the left */
+        }
+        .boxes-container {
+            width: 30%; /* Width for the boxes container */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
         .buttons {
             display: flex;
@@ -157,12 +171,9 @@
                 margin-bottom: 20px; /* Add bottom margin for spacing */
                 width: 80%; /* Adjusted width for mobile */
             }
-            .box {
+            .boxes-container {
                 width: 100%; /* Ensure full width on mobile */
             }
-        }
-        .text-content {
-            font-weight: bold; /* Make text bold */
         }
     </style>
     <script>
@@ -185,10 +196,22 @@
         About our book
     </div>
 
-    <!-- Image and Boxes Section -->
+    <!-- Image, Notice Text, and Boxes Section -->
     <div class="text-box">
         <img src="https://imgur.com/XExoBdT.jpg" alt="Book Image">
-        <div style="flex-grow: 1;">
+        
+        <div class="text-content">
+            <div class="notice">
+                <p>Notice:</p>
+                <p>- This content is only intended for specific people</p>
+                <p>- Those who are unable to be organized and persevere</p>
+                <p>- Always distracted</p>
+                <p>This book provides you with assistance in taking your first step into the real world</p>
+                <p>- If you do not have goals and accept your failure, I will be wasting your time if you continue reading</p>
+            </div>
+        </div>
+
+        <div class="boxes-container">
             <div class="box" onclick="changeBoxColor(this)">
                 <h1>Value</h1>
                 <p>We are here</p>
@@ -205,16 +228,15 @@
                 <h1>Details</h1>
                 <p>Pages: 25</p> <!-- Updated from 22 to 25 -->
                 <p>Chapters: 4</p>
-                <p>Chapters: Who are you?, Growth mindset, The most dangerous enemy: Fear, About discipline and habits</p>
-                <p>This content aims to empower you by helping you discover your inner strengths, overcome fears, and adopt a growth mindset.</p>
-                <p>Join us on this journey to personal growth and self-discovery!</p>
+                <p>Chapters: Who are you, Stay Organized, Perseverance, Habits</p>
             </div>
         </div>
     </div>
 
+    <!-- Buttons Section -->
     <div class="buttons">
-        <a class="button" href="https://docs.google.com/document/d/1xLPtpR7AI3iqSRiOK9WY25CoqCAPHlt2/edit?usp=drive_link&ouid=111912314992372195962&rtpof=true&sd=true" target="_blank" onclick="buttonClick('You clicked on Free Page!')">Free Page</a>
-        <a class="button" href="https://yossef4.gumroad.com/l/knowyourself?_gl=1*an28j3*_ga*MTQwMDk1NDQ5MC4xNjk1NTMwNjgx*_ga_6LJN6D94N6*MTY5NTUzMDgyOC4xMi4xLjE2OTU1MzA5MDUuMC4wLjA." onclick="buttonClick('You clicked on Buy Now!')">Buy Now</a>
+        <a class="button" href="#">Learn More</a>
+        <a class="button" href="#">Buy Now</a>
     </div>
 
     <!-- Footer with link -->
