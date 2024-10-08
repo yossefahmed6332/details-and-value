@@ -47,13 +47,16 @@
             flex-wrap: wrap; /* Allow wrapping for responsiveness */
             justify-content: space-between; /* Space between items */
             width: 100%;
+            position: relative; /* Position for absolute elements */
         }
         .image-container {
-            flex: 1 1 30%; /* Responsive image container */
+            flex: 1 1 40%; /* Responsive image container */
             margin-right: 20px; /* Spacing to the right */
         }
         img {
             width: 100%; /* Full width of the container */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 400px; /* Set a maximum height */
             border: 2px solid #debf76;
             border-radius: 10px;
             transition: transform 0.3s; /* Smooth transition */
@@ -68,7 +71,7 @@
             line-height: 1.5;
             margin-bottom: 20px; /* Spacing below the notice */
             text-align: left; /* Align text to the left */
-            flex: 1 1 60%; /* Responsive notice container */
+            flex: 1 1 50%; /* Responsive notice container */
             position: absolute; /* Positioning on top of the background */
             top: 20%; /* Adjust position */
             left: 5%; /* Adjust position */
@@ -138,10 +141,13 @@
             .image-container {
                 margin-right: 0; /* Remove right margin */
                 margin-bottom: 20px; /* Add bottom margin for spacing */
-                width: 80%; /* Adjusted width for mobile */
+                width: 90%; /* Adjusted width for mobile */
             }
             .notice {
-                width: 80%; /* Ensure full width for notice on mobile */
+                width: 90%; /* Ensure full width for notice on mobile */
+                top: 10%; /* Adjust top position for mobile */
+                left: 5%; /* Adjust left position for mobile */
+                right: 5%; /* Adjust right position for mobile */
             }
             .boxes-container {
                 width: 90%; /* Ensure full width on mobile */
