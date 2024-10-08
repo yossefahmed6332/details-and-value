@@ -44,7 +44,7 @@
         }
         .content {
             display: flex;
-            flex-wrap: wrap; /* Allow wrapping for responsiveness */
+            flex-wrap: nowrap; /* Prevent wrapping for side by side layout */
             justify-content: space-between; /* Space between items */
             width: 100%;
             position: relative; /* Position for absolute elements */
@@ -56,13 +56,13 @@
         img {
             width: 100%; /* Full width of the container */
             height: auto; /* Maintain aspect ratio */
-            max-height: 400px; /* Set a maximum height */
+            max-height: 600px; /* Set a maximum height */
             border: 2px solid #debf76;
             border-radius: 10px;
             transition: transform 0.3s; /* Smooth transition */
         }
         img:hover {
-            transform: rotate(5deg); /* Rotate effect on hover */
+            transform: scale(1.05); /* Scale effect on hover */
         }
         .notice {
             background-color: rgba(255, 255, 255, 0.1); /* Light background for notice text */
@@ -72,10 +72,7 @@
             margin-bottom: 20px; /* Spacing below the notice */
             text-align: left; /* Align text to the left */
             flex: 1 1 50%; /* Responsive notice container */
-            position: absolute; /* Positioning on top of the background */
-            top: 20%; /* Adjust position */
-            left: 5%; /* Adjust position */
-            right: 5%; /* Adjust position */
+            position: relative; /* Positioning on top of the background */
         }
         .boxes-container {
             display: flex;
