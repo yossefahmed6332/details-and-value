@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            background: #2c2c2c; /* خلفية داكنة (رمادي داكن) */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -21,23 +21,45 @@
         /* تنسيق قسم الترحيب */
         .welcome-container {
             text-align: center;
-            background: black;
+            background: #333333; /* خلفية داكنة (لون أسود غير مطفي) */
             color: white;
             padding: 20px 40px;
             border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* تأثير ظل بلون أسود */
             animation: fadeIn 2s ease-in-out; /* تأثير تدريجي */
+            cursor: pointer;
         }
 
         .welcome-container h1 {
             margin: 0;
             font-size: 36px;
             font-weight: bold;
+            color: #e0e0e0; /* نص بلون رمادي فاتح */
         }
 
         .welcome-container p {
             margin: 10px 0 0;
             font-size: 18px;
+            color: #b3b3b3; /* نص بلون رمادي داكن */
+        }
+
+        .welcome-container .click-me {
+            font-size: 20px;
+            margin-top: 15px;
+            background-color: #444444; /* زر بلون رمادي متوسط */
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            border: 2px solid #666666; /* إضافة حد بلون رمادي */
+        }
+
+        .welcome-container .click-me:hover {
+            background-color: #555555; /* تأثير عند التمرير على الزر */
+            border-color: #888888;
         }
 
         /* تأثيرات التحريك */
@@ -51,28 +73,14 @@
                 transform: translateY(0);
             }
         }
-
-        /* تنسيق النص السفلي */
-        .offer-container {
-            position: absolute;
-            bottom: 50px;
-            left: 20px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-        }
     </style>
 </head>
 <body>
     <!-- قسم الترحيب -->
-    <div class="welcome-container">
+    <div class="welcome-container" onclick="window.location.href='newpage.html';">
         <h1>Welcome,</h1>
         <p>Do you want to know more about me?</p>
-    </div>
-
-    <!-- النص السفلي -->
-    <div class="offer-container">
-        <p>What can I offer for you?</p>
+        <a href="newpage.html" class="click-me">Click Me</a>
     </div>
 </body>
 </html>
