@@ -14,31 +14,15 @@
         body, html {
             height: 100%;
             font-family: Arial, sans-serif;
-            background-image: url('https://i.imgur.com/ZELcG3u.jpeg');
+            background-image: url('https://i.imgur.com/ZELcG3u.jpeg'); /* خلفية جديدة */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: -1;
         }
 
         .container {
             display: flex;
             height: 100%;
-            width: 100%;
-            align-items: flex-start;
-            flex-direction: row;
         }
 
         .image-section {
@@ -57,20 +41,19 @@
             width: 60%;
             display: flex;
             flex-direction: column;
+            justify-content: flex-start;
             padding: 20px;
             color: white;
-            z-index: 1;
-            margin-top: 20px;
         }
 
-        .title, .new-title, .third-title {
+        .title {
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 10px;
             text-align: left;
         }
 
-        .paragraph, .new-paragraph, .third-paragraph {
+        .paragraph {
             font-size: 18px;
             text-align: left;
             margin-bottom: 15px;
@@ -78,83 +61,41 @@
 
         /* تنسيق البوكسات */
         .box {
-            background-color: #004080;
+            background-color: #0066cc;
             color: white;
-            padding: 15px 30px;
-            font-size: 22px;
-            border-radius: 10px;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 8px;
             cursor: pointer;
-            margin: 0;
             transition: background-color 0.3s ease;
+            margin: 10px 15px;
+            width: 160px; /* تقليص الحجم */
+            text-align: center;
         }
 
         .box:hover {
-            background-color: #003366;
+            background-color: #004d99;
         }
 
         .box:active {
-            transform: scale(0.9);
+            transform: scale(0.95);
         }
 
-        /* تنسيق البوكسات أسفل الصفحة */
-        .box-container {
-            width: 60%;
+        /* تنسيق للبوكسات بحيث تكون بجانب بعض */
+        .boxes-container {
             display: flex;
-            justify-content: space-between;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 20px;
         }
 
-        .box-container .box {
-            width: 48%; /* عرض كل بوكس */
-        }
-
-        /* استعلامات الوسائط لتصميم صفحات الهواتف */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .image-section, .text-section {
-                width: 100%;
-                padding: 10px;
-            }
-
-            .title, .new-title, .third-title {
-                font-size: 24px;
-            }
-
-            .paragraph, .new-paragraph, .third-paragraph {
-                font-size: 16px;
-            }
-
-            .box {
-                font-size: 20px;
-                padding: 12px 25px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .title, .new-title, .third-title {
-                font-size: 20px;
-            }
-
-            .paragraph, .new-paragraph, .third-paragraph {
-                font-size: 14px;
-            }
-
-            .box {
-                font-size: 18px;
-                padding: 10px 20px;
-            }
+        .box-container {
+            display: inline-block;
+            margin: 0 15px;
         }
     </style>
 </head>
 <body>
-    <div class="overlay"></div>
 
     <div class="container">
         <div class="image-section">
@@ -171,46 +112,39 @@
             <p class="paragraph">
                 Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
             </p>
-
-            <div class="new-title">Something for Everyone: Recipes for Meat Lovers and Vegetarians</div>
-            <p class="new-paragraph">
+            <p class="paragraph">
+                Something for Everyone: Recipes for Meat Lovers and Vegetarians
+            </p>
+            <p class="paragraph">
                 In "Cook Every 15 Minutes," we offer a wide variety of recipes designed to satisfy all tastes. Whether you're passionate about meat dishes or prefer plant-based meals, you'll find numerous options that cater to your needs. The book is divided into two specialized sections: one dedicated to hearty meat dishes and protein-packed juices, and the other focused on delicious, healthy plant-based recipes using fresh, vegetarian ingredients. This division ensures a culinary journey that caters to both meat lovers and vegetarians. Each recipe is crafted to be ready in just 15 minutes, offering the perfect solution for those who want to enjoy a tasty, nutritious meal in no time.
             </p>
 
-            <div class="third-title">Why You Need This Cookbook</div>
-            <p class="third-paragraph">
+            <p class="paragraph">
+                Why You Need This Cookbook
+            </p>
+            <p class="paragraph">
                 This cookbook is the perfect solution for individuals with busy lives who still want to enjoy delicious, healthy meals without spending a lot of time in the kitchen. With recipes that can be prepared in just 15 minutes, it offers a quick and convenient way to prepare tasty dishes. Whether you're a meat lover or follow a plant-based diet, this book has something for everyone, with sections dedicated to both protein-packed meat dishes and fresh, vegetarian meals. The recipes are designed using simple, easy-to-find ingredients, ensuring that even beginners can cook with ease. By providing healthy, balanced meals in a short amount of time, this cookbook is the ideal choice for anyone looking to save time while eating well.
             </p>
-        </div>
-    </div>
-
-    <!-- First Box: Details -->
-    <div class="box-container">
-        <div class="box" id="detailsBox" onclick="goToPage()">
-            Details
-        </div>
-
-        <!-- Second Box: Redirect to Cook in Space Link -->
-        <div class="box" id="linkBox" onclick="window.location.href='https://example.com'">
-            Cook in Space
+            
+            <!-- إضافة البوكسات -->
+            <div class="boxes-container">
+                <div class="box-container">
+                    <div class="box" onclick="goToDetailsPage()">Details</div>
+                </div>
+                <div class="box-container">
+                    <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // الوظيفة التي ستحدث عند الضغط على البوكس "Details"
-        function goToPage() {
-            const box = document.getElementById('detailsBox');
-            box.style.backgroundColor = '#003366';
+        function goToDetailsPage() {
+            window.location.href = "your-link-here"; // رابط الصفحة الخاصة بالتفاصيل
+        }
 
-            setTimeout(() => {
-                document.body.innerHTML = `
-                    <div class="main-container">
-                        <div class="main-box">
-                            Welcome to the Main Page!
-                        </div>
-                    </div>
-                `;
-            }, 300);
+        function goToCookInSpace() {
+            window.location.href = "https://example.com"; // رابط صفحة "Cook in Space"
         }
     </script>
 </body>
