@@ -14,6 +14,21 @@
         body, html {
             height: 100%;
             font-family: Arial, sans-serif;
+            background-image: url('https://i.imgur.com/EhKYhOy.jpg'); /* تعيين صورة الخلفية */
+            background-size: cover; /* جعل الصورة تغطي كامل المساحة */
+            background-position: center; /* وضع الصورة في المنتصف */
+            background-attachment: fixed; /* جعل الصورة ثابتة عند التمرير */
+        }
+
+        /* إضافة طبقة مسودة فوق الخلفية */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* اللون الأسود مع شفافية */
+            z-index: -1; /* خلف المحتوى */
         }
 
         .container {
@@ -22,61 +37,93 @@
         }
 
         .image-section {
-            width: 33.33%;
+            width: 40%;
             height: 100%;
-            overflow: hidden; /* لإخفاء أي جزء من الصورة يتجاوز الحواف */
+            overflow: hidden;
         }
 
         .image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            animation: slideIn 0.67s ease-out forwards; /* تسريع الحركة ثلاث مرات */
-        }
-
-        @keyframes slideIn {
-            0% {
-                transform: translateX(-100%); /* تبدأ الصورة من خارج الشاشة من اليسار */
-            }
-            100% {
-                transform: translateX(0); /* تنتهي الصورة في مكانها الطبيعي */
-            }
         }
 
         .text-section {
-            width: 66.66%;
+            width: 60%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: center;
+            padding: 20px;
+            color: black;
+            background-color: white; /* خلفية بيضاء حول النصوص */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-left: 20px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .paragraph {
+            font-size: 18px;
+            text-align: left;
+            margin-bottom: 15px;
         }
 
         .box {
             background-color: blue;
             color: white;
-            padding: 20px 40px;
-            font-size: 24px;
+            padding: 15px 30px;
+            font-size: 22px;
             border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 0;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .box:hover {
             background-color: darkblue;
-            transform: scale(1.1);
+            transform: scale(1.2);
+        }
+
+        .box:active {
+            transform: scale(0.9);
         }
     </style>
 </head>
 <body>
+    <!-- الطبقة المسودة فوق الخلفية -->
+    <div class="overlay"></div>
+
     <!-- صفحة الـ Landing Page -->
     <div class="container">
         <div class="image-section">
-            <img src="https://i.imgur.com/l1hCo6p.jpeg" alt="Space Image" class="image" id="alienImage">
+            <img src="https://i.imgur.com/l1hCo6p.jpeg" alt="Space Image" class="image">
         </div>
         <div class="text-section">
-            <div class="box" id="cookBox" onclick="goToPage()">
-                Cook in space
-            </div>
+            <div class="title">Cook Every 15 Minutes – The Ultimate Time-Saver Cookbook</div>
+            <p class="paragraph">
+                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time. The book features a collection of quick and delicious recipes that take no more than 15 minutes to prepare, making it the ideal choice for those with busy lifestyles who still want to enjoy great meals with minimal effort.
+            </p>
+            <p class="paragraph">
+                Whether you're a beginner in the kitchen or a professional chef, this book will help you create a variety of meals that fit into your tight schedule, using simple and easy-to-find ingredients.
+            </p>
+            <p class="paragraph">
+                Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
+            </p>
         </div>
+    </div>
+
+    <div class="box" id="cookBox" onclick="goToPage()">
+        Cook in space
     </div>
 
     <script>
@@ -88,7 +135,6 @@
             
             // الانتقال إلى الصفحة التالية (Main Page)
             setTimeout(() => {
-                // تخيل أن هذه الصفحة هي الصفحة الرئيسية:
                 document.body.innerHTML = `
                     <div class="main-container">
                         <div class="main-box">
