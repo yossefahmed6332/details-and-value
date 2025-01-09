@@ -170,7 +170,7 @@
         }
     </style>
 </head>
-<body onload="document.body.classList.add('loaded')">
+<body>
 
     <div class="container">
         <div class="image-section">
@@ -213,6 +213,10 @@
     </div>
 
     <script>
+        window.onload = function() {
+            document.body.classList.add('loaded'); // إضافة الكلاس عند تحميل الصفحة
+        }
+
         function goToDetailsPage() {
             window.location.href = "your-link-here"; // رابط الصفحة الخاصة بالتفاصيل
         }
@@ -220,7 +224,4 @@
         function goToCookInSpace() {
             window.location.href = "https://example.com"; // رابط صفحة "Cook in Space"
         }
-    </script>
-
-</body>
-</html>
+    </script
