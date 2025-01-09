@@ -14,21 +14,21 @@
         body, html {
             height: 100%;
             font-family: Arial, sans-serif;
-            background-image: url('https://i.imgur.com/EhKYhOy.jpg'); /* تعيين صورة الخلفية */
-            background-size: cover; /* جعل الصورة تغطي كامل المساحة */
-            background-position: center; /* وضع الصورة في المنتصف */
-            background-attachment: fixed; /* جعل الصورة ثابتة عند التمرير */
+            background-image: url('https://i.imgur.com/ZELcG3u.jpeg'); /* تغيير صورة الخلفية */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
-        /* إضافة طبقة مسودة فوق الخلفية */
+        /* الطبقة المسودة لتظليل الخلفية */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* اللون الأسود مع شفافية */
-            z-index: -1; /* خلف المحتوى */
+            background-color: rgba(0, 0, 0, 0.5); /* إضافة تظليل */
+            z-index: -1;
         }
 
         .container {
@@ -55,7 +55,7 @@
             justify-content: center;
             padding: 20px;
             color: black;
-            background-color: white; /* خلفية بيضاء حول النصوص */
+            background-color: white; /* خلفية بيضاء للنصوص */
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin-left: 20px;
@@ -81,17 +81,16 @@
             font-size: 22px;
             border-radius: 10px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
             margin: 0;
             position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
+            transition: background-color 0.3s ease; /* إزالة حركة التمرير */
         }
 
         .box:hover {
-            background-color: darkblue;
-            transform: scale(1.2);
+            background-color: darkblue; /* عند التمرير لا يكون هناك تكبير أو حركة */
         }
 
         .box:active {
@@ -100,7 +99,7 @@
     </style>
 </head>
 <body>
-    <!-- الطبقة المسودة فوق الخلفية -->
+    <!-- الطبقة المسودة -->
     <div class="overlay"></div>
 
     <!-- صفحة الـ Landing Page -->
@@ -129,9 +128,8 @@
     <script>
         // الوظيفة التي ستحدث عند الضغط على البوكس
         function goToPage() {
-            // تغيير لون البوكس عند الضغط عليه
             const box = document.getElementById('cookBox');
-            box.style.backgroundColor = 'darkblue';
+            box.style.backgroundColor = 'darkblue'; // تغيير اللون عند الضغط
             
             // الانتقال إلى الصفحة التالية (Main Page)
             setTimeout(() => {
