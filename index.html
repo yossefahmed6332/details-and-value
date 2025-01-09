@@ -76,6 +76,7 @@
             margin-bottom: 15px;
         }
 
+        /* تنسيق البوكسات */
         .box {
             background-color: #004080;
             color: white;
@@ -84,10 +85,6 @@
             border-radius: 10px;
             cursor: pointer;
             margin: 0;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
             transition: background-color 0.3s ease;
         }
 
@@ -97,6 +94,21 @@
 
         .box:active {
             transform: scale(0.9);
+        }
+
+        /* تنسيق البوكسات أسفل الصفحة */
+        .box-container {
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .box-container .box {
+            width: 48%; /* عرض كل بوكس */
         }
 
         /* استعلامات الوسائط لتصميم صفحات الهواتف */
@@ -172,13 +184,22 @@
         </div>
     </div>
 
-    <div class="box" id="cookBox" onclick="goToPage()">
-        Cook in space
+    <!-- First Box: Details -->
+    <div class="box-container">
+        <div class="box" id="detailsBox" onclick="goToPage()">
+            Details
+        </div>
+
+        <!-- Second Box: Redirect to Cook in Space Link -->
+        <div class="box" id="linkBox" onclick="window.location.href='https://example.com'">
+            Cook in Space
+        </div>
     </div>
 
     <script>
+        // الوظيفة التي ستحدث عند الضغط على البوكس "Details"
         function goToPage() {
-            const box = document.getElementById('cookBox');
+            const box = document.getElementById('detailsBox');
             box.style.backgroundColor = '#003366';
 
             setTimeout(() => {
