@@ -18,12 +18,75 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* إضافة الكواكب المتحركة */
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: 0.7;
+        }
+
+        .planet1 {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            left: 10%;
+            animation: movePlanet1 10s linear infinite;
+        }
+
+        .planet2 {
+            width: 80px;
+            height: 80px;
+            top: 60%;
+            left: 50%;
+            animation: movePlanet2 15s linear infinite;
+        }
+
+        .planet3 {
+            width: 100px;
+            height: 100px;
+            top: 40%;
+            left: 80%;
+            animation: movePlanet3 20s linear infinite;
+        }
+
+        /* تحريك الكواكب */
+        @keyframes movePlanet1 {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(300px) translateY(150px);
+            }
+        }
+
+        @keyframes movePlanet2 {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(-300px) translateY(-150px);
+            }
+        }
+
+        @keyframes movePlanet3 {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(250px) translateY(-200px);
+            }
         }
 
         .container {
             display: flex;
             height: 100%;
             flex-direction: row;
+            z-index: 1; /* تأكد أن الكواكب تحت المحتوى */
         }
 
         .image-section {
@@ -32,13 +95,28 @@
             overflow: hidden;
             opacity: 0;
             transform: translateY(-50px);
-            animation: fadeIn 1s forwards;
+            animation: fadeIn 0.5s forwards;
         }
 
-        .image {
+        /* رائد الفضاء */
+        .astronaut {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards, moveAstronaut 1s 0.5s forwards;
+        }
+
+        @keyframes moveAstronaut {
+            0% {
+                transform: translateX(-200px);
+            }
+            100% {
+                transform: translateX(50px); /* مكان رائد الفضاء بعد ظهوره */
+            }
         }
 
         .text-section {
@@ -60,7 +138,7 @@
             font-weight: bold;
             margin-bottom: 10px;
             text-align: left;
-            animation: fadeIn 1s 1s forwards;
+            animation: fadeIn 0.5s 1s forwards;
         }
 
         .section-title {
@@ -68,14 +146,14 @@
             font-weight: bold;
             margin-bottom: 10px;
             text-align: left;
-            animation: fadeIn 1s 2s forwards;
+            animation: fadeIn 0.5s 1.5s forwards;
         }
 
         .paragraph {
             font-size: 18px;
             text-align: left;
             margin-bottom: 15px;
-            animation: fadeIn 1s 3s forwards;
+            animation: fadeIn 0.5s 2s forwards;
         }
 
         .box {
@@ -92,7 +170,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            animation: fadeIn 1s 4s forwards, pulse 2s infinite;
+            animation: fadeIn 0.5s 2.5s forwards, pulse 1s infinite;
         }
 
         .boxes-container {
@@ -102,7 +180,7 @@
             margin-top: 20px;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeIn 1s 4s forwards;
+            animation: fadeIn 0.5s 3s forwards;
         }
 
         @keyframes fadeIn {
@@ -179,9 +257,15 @@
 </head>
 <body>
 
+    <!-- إضافة الكواكب في الخلفية -->
+    <div class="planet planet1"></div>
+    <div class="planet planet2"></div>
+    <div class="planet planet3"></div>
+
     <div class="container">
         <div class="image-section">
-            <img src="https://i.imgur.com/l1hCo6p.jpeg" alt="Space Image" class="image">
+            <!-- هنا سنضع رائد الفضاء -->
+            <img src="https://i.imgur.com/l1hCo6p.jpeg" alt="Space Image" class="astronaut">
         </div>
         <div class="text-section">
             <div class="title">Cook Every 15 Minutes – The Ultimate Time-Saver Cookbook</div>
