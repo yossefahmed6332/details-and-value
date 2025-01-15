@@ -115,10 +115,10 @@
             position: fixed;
             bottom: 40px;  /* تقريب الصورة أكثر إلى البوكسات */
             right: 30px;  /* تقريب الصورة أكثر إلى البوكسات */
-            width: 150px; /* تكبير الحجم قليلاً */
-            height: 150px; /* تكبير الحجم قليلاً */
+            width: 120px; /* تقليل الحجم قليلاً */
+            height: 120px; /* تقليل الحجم قليلاً */
             animation: floatUp 4s ease-in-out infinite;
-            background-color: transparent; /* إزالة الخلفية */
+            background-color: transparent; /* إزالة الخلفية السوداء */
         }
 
         @keyframes fadeIn {
@@ -203,6 +203,20 @@
                 padding: 8px 18px;
             }
         }
+
+        /* New Animation and Effects */
+        .pulse-hover {
+            animation: pulse 2s infinite;
+        }
+
+        .hover-effect {
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .hover-effect:hover {
+            transform: scale(1.1);
+            background-color: #003366;
+        }
     </style>
 </head>
 <body>
@@ -235,10 +249,10 @@
 
             <div class="boxes-container">
                 <div class="box-container">
-                    <div class="box" onclick="goToDetailsPage()">Details</div>
+                    <div class="box hover-effect" onclick="goToDetailsPage()">Details</div>
                 </div>
                 <div class="box-container">
-                    <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
+                    <div class="box hover-effect" onclick="goToCookInSpace()">Cook in Space</div>
                 </div>
             </div>
         </div>
