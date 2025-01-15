@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page with Rotating Planets</title>
+    <title>Landing Page</title>
     <style>
         * {
             margin: 0;
@@ -30,55 +30,15 @@
             width: 40%;
             height: 100%;
             overflow: hidden;
-            position: relative;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeIn 1s forwards;
         }
 
         .image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        /* كواكب تدور حول الصورة */
-        .planet {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background-color: #ffcc00;
-            border-radius: 50%;
-            animation: rotate 10s linear infinite;
-        }
-
-        .planet1 {
-            top: 50%;
-            left: 50%;
-            transform-origin: -80px -80px;
-            animation-duration: 10s;
-        }
-
-        .planet2 {
-            top: 50%;
-            left: 50%;
-            transform-origin: -120px -120px;
-            animation-duration: 15s;
-            background-color: #ff5733;
-        }
-
-        .planet3 {
-            top: 50%;
-            left: 50%;
-            transform-origin: -160px -160px;
-            animation-duration: 20s;
-            background-color: #33c1ff;
-        }
-
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
         }
 
         .text-section {
@@ -175,7 +135,7 @@
 
             .image-section {
                 width: 100%;
-                height: 300px;
+                height: auto;
             }
 
             .text-section {
@@ -228,30 +188,66 @@
     <div class="container">
         <div class="image-section">
             <img src="https://i.imgur.com/zKBg8mI.jpeg" alt="New Space Image" class="image">
-            <!-- الكواكب -->
-            <div class="planet planet1"></div>
-            <div class="planet planet2"></div>
-            <div class="planet planet3"></div>
         </div>
         <div class="text-section">
             <div class="title">Cook Every 15 Minutes – The Ultimate Time-Saver Cookbook</div>
             <p class="paragraph">
-                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time.
+                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time. The book features a collection of quick and delicious recipes that take no more than 15 minutes to prepare, making it the ideal choice for those with busy lifestyles who still want to enjoy great meals with minimal effort.
             </p>
+            <p class="paragraph">
+                Whether you're a beginner in the kitchen or a professional chef, this book will help you create a variety of meals that fit into your tight schedule, using simple and easy-to-find ingredients.
+            </p>
+            <p class="paragraph">
+                Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
+            </p>
+            
+            <div class="section-title">Something for Everyone: Recipes for Meat Lovers and Vegetarians</div>
+            <p class="paragraph">
+                In "Cook Every 15 Minutes," we offer a wide variety of recipes designed to satisfy all tastes. Whether you're passionate about meat dishes or prefer plant-based meals, you'll find numerous options that cater to your needs. The book is divided into two specialized sections: one dedicated to hearty meat dishes and protein-packed juices, and the other focused on delicious, healthy plant-based recipes using fresh, vegetarian ingredients. This division ensures a culinary journey that caters to both meat lovers and vegetarians. Each recipe is crafted to be ready in just 15 minutes, offering the perfect solution for those who want to enjoy a tasty, nutritious meal in no time.
+            </p>
+
+            <div class="section-title">Why You Need This Cookbook</div>
+            <p class="paragraph">
+                This cookbook is the perfect solution for individuals with busy lives who still want to enjoy delicious, healthy meals without spending a lot of time in the kitchen. With recipes that can be prepared in just 15 minutes, it offers a quick and convenient way to prepare tasty dishes. Whether you're a meat lover or follow a plant-based diet, this book has something for everyone, with sections dedicated to both protein-packed meat dishes and fresh, vegetarian meals. The recipes are designed using simple, easy-to-find ingredients, ensuring that even beginners can cook with ease. By providing healthy, balanced meals in a short amount of time, this cookbook is the ideal choice for anyone looking to save time while eating well.
+            </p>
+
             <div class="boxes-container">
-                <div class="box" onclick="goToDetailsPage()">Details</div>
-                <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
+                <div class="box-container">
+                    <div class="box" onclick="goToDetailsPage()">Details</div>
+                </div>
+                <div class="box-container">
+                    <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
         function goToDetailsPage() {
-            alert('Details Page Clicked');
+            animateButton("Details");
+            setTimeout(() => {
+                window.location.href = "your-link-here"; // رابط الصفحة الخاصة بالتفاصيل
+            }, 500); // تأخير صغير لإعطاء تأثير النقر
         }
 
         function goToCookInSpace() {
-            alert('Cook in Space Clicked');
+            animateButton("Cook in Space");
+            setTimeout(() => {
+                window.location.href = "https://example.com"; // رابط صفحة "Cook in Space"
+            }, 500); // تأخير صغير لإعطاء تأثير النقر
+        }
+
+        function animateButton(buttonText) {
+            const buttons = document.querySelectorAll('.box');
+            buttons.forEach(button => {
+                if (button.textContent === buttonText) {
+                    button.style.transform = "scale(1.2)";
+                    button.style.transition = "transform 0.2s";
+                    setTimeout(() => {
+                        button.style.transform = "scale(1)";
+                    }, 200); // إعادة الحجم الطبيعي بعد التأثير
+                }
+            });
         }
     </script>
 
