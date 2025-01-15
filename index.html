@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -22,101 +23,17 @@
             overflow: hidden;
         }
 
-        /* إضافة الكواكب المتحركة */
-        .planet {
-            position: absolute;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.6);
-            opacity: 0.7;
-        }
-
-        .planet1 {
-            width: 60px;
-            height: 60px;
-            top: 20%;
-            left: 10%;
-            animation: movePlanet1 10s linear infinite;
-        }
-
-        .planet2 {
-            width: 80px;
-            height: 80px;
-            top: 60%;
-            left: 50%;
-            animation: movePlanet2 15s linear infinite;
-        }
-
-        .planet3 {
-            width: 100px;
-            height: 100px;
-            top: 40%;
-            left: 80%;
-            animation: movePlanet3 20s linear infinite;
-        }
-
-        /* تحريك الكواكب */
-        @keyframes movePlanet1 {
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            100% {
-                transform: translateX(300px) translateY(150px);
-            }
-        }
-
-        @keyframes movePlanet2 {
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            100% {
-                transform: translateX(-300px) translateY(-150px);
-            }
-        }
-
-        @keyframes movePlanet3 {
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            100% {
-                transform: translateX(250px) translateY(-200px);
-            }
-        }
-
         .container {
             display: flex;
             height: 100%;
-            flex-direction: row;
-            z-index: 1; /* تأكد أن الكواكب تحت المحتوى */
         }
 
         .image-section {
             width: 40%;
             height: 100%;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(-50px);
-            animation: fadeIn 0.5s forwards;
-        }
-
-        /* رائد الفضاء */
-        .astronaut {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            animation: fadeIn 0.5s forwards, moveAstronaut 1s 0.5s forwards;
-        }
-
-        @keyframes moveAstronaut {
-            0% {
-                transform: translateX(-200px);
-            }
-            100% {
-                transform: translateX(50px); /* مكان رائد الفضاء بعد ظهوره */
-            }
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .text-section {
@@ -129,31 +46,26 @@
         }
 
         .title, .section-title, .paragraph {
-            opacity: 0;
-            transform: translateY(20px);
+            margin-bottom: 15px;
         }
 
         .title {
             font-size: 28px;
             font-weight: bold;
-            margin-bottom: 10px;
-            text-align: left;
-            animation: fadeIn 0.5s 1s forwards;
         }
 
         .section-title {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
-            margin-bottom: 10px;
-            text-align: left;
-            animation: fadeIn 0.5s 1.5s forwards;
         }
 
         .paragraph {
             font-size: 18px;
-            text-align: left;
-            margin-bottom: 15px;
-            animation: fadeIn 0.5s 2s forwards;
+        }
+
+        .boxes-container {
+            display: flex;
+            margin-top: 20px;
         }
 
         .box {
@@ -170,102 +82,31 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            animation: fadeIn 0.5s 2.5s forwards, pulse 1s infinite;
         }
 
-        .boxes-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            margin-top: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.5s 3s forwards;
+        /* الحركة لرائد الفضاء */
+        .astronaut-animation {
+            animation: floatUpDown 3s infinite ease-in-out;
         }
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
+        @keyframes floatUpDown {
+            0% {
                 transform: translateY(0);
             }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
             50% {
-                transform: scale(1.1);
+                transform: translateY(-20px);
             }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .image-section {
-                width: 100%;
-                height: auto;
-            }
-
-            .text-section {
-                width: 100%;
-                padding: 10px;
-            }
-
-            .title {
-                font-size: 24px;
-            }
-
-            .paragraph {
-                font-size: 16px;
-            }
-
-            .box {
-                width: 150px;
-                height: 45px;
-                font-size: 16px;
-                padding: 10px 20px;
-            }
-
-            .boxes-container {
-                flex-direction: column;
-                align-items: center;
-                margin-top: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .title {
-                font-size: 20px;
-            }
-
-            .paragraph {
-                font-size: 14px;
-            }
-
-            .box {
-                width: 130px;
-                height: 40px;
-                font-size: 14px;
-                padding: 8px 18px;
+            100% {
+                transform: translateY(0);
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- إضافة الكواكب في الخلفية -->
-    <div class="planet planet1"></div>
-    <div class="planet planet2"></div>
-    <div class="planet planet3"></div>
-
     <div class="container">
         <div class="image-section">
-            <!-- هنا سنضع رائد الفضاء -->
-            <img src="https://i.imgur.com/l1hCo6p.jpeg" alt="Space Image" class="astronaut">
+            <div id="canvas-container"></div>
         </div>
         <div class="text-section">
             <div class="title">Cook Every 15 Minutes – The Ultimate Time-Saver Cookbook</div>
@@ -273,40 +114,76 @@
                 Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time. The book features a collection of quick and delicious recipes that take no more than 15 minutes to prepare, making it the ideal choice for those with busy lifestyles who still want to enjoy great meals with minimal effort.
             </p>
             <p class="paragraph">
-                Whether you're a beginner in the kitchen or a professional chef, this book will help you create a variety of meals that fit into your tight schedule, using simple and easy-to-find ingredients.
-            </p>
-            <p class="paragraph">
                 Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
-            </p>
-            
-            <div class="section-title">Something for Everyone: Recipes for Meat Lovers and Vegetarians</div>
-            <p class="paragraph">
-                In "Cook Every 15 Minutes," we offer a wide variety of recipes designed to satisfy all tastes. Whether you're passionate about meat dishes or prefer plant-based meals, you'll find numerous options that cater to your needs. The book is divided into two specialized sections: one dedicated to hearty meat dishes and protein-packed juices, and the other focused on delicious, healthy plant-based recipes using fresh, vegetarian ingredients. This division ensures a culinary journey that caters to both meat lovers and vegetarians. Each recipe is crafted to be ready in just 15 minutes, offering the perfect solution for those who want to enjoy a tasty, nutritious meal in no time.
-            </p>
-
-            <div class="section-title">Why You Need This Cookbook</div>
-            <p class="paragraph">
-                This cookbook is the perfect solution for individuals with busy lives who still want to enjoy delicious, healthy meals without spending a lot of time in the kitchen. With recipes that can be prepared in just 15 minutes, it offers a quick and convenient way to prepare tasty dishes. Whether you're a meat lover or follow a plant-based diet, this book has something for everyone, with sections dedicated to both protein-packed meat dishes and fresh, vegetarian meals. The recipes are designed using simple, easy-to-find ingredients, ensuring that even beginners can cook with ease. By providing healthy, balanced meals in a short amount of time, this cookbook is the ideal choice for anyone looking to save time while eating well.
             </p>
 
             <div class="boxes-container">
-                <div class="box-container">
-                    <div class="box" onclick="goToDetailsPage()">Details</div>
-                </div>
-                <div class="box-container">
-                    <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
-                </div>
+                <div class="box" onclick="goToDetailsPage()">Details</div>
+                <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
             </div>
         </div>
     </div>
 
     <script>
+        function setup() {
+            let canvas = createCanvas(300, 300);
+            canvas.parent('canvas-container');
+            noLoop();
+        }
+
+        function draw() {
+            background(0);
+
+            // رسم كوكب زحل
+            drawSaturn();
+
+            // رسم الثقب الأسود
+            drawBlackHole();
+
+            // رسم رائد الفضاء مع الحركة
+            drawAstronaut();
+        }
+
+        function drawSaturn() {
+            fill(200, 150, 50);
+            ellipse(100, 80, 150, 70); // الحلقات
+            fill(180, 120, 40);
+            ellipse(100, 80, 100, 50); // الكوكب
+        }
+
+        function drawBlackHole() {
+            noStroke();
+            fill(0);
+            ellipse(220, 220, 70, 70); // المركز
+            for (let r = 70; r < 150; r += 10) {
+                fill(50, 50, 50, map(r, 70, 150, 255, 0));
+                ellipse(220, 220, r, r);
+            }
+        }
+
+        function drawAstronaut() {
+            fill(255);
+            rect(130, 180, 20, 50); // الجسم
+            ellipse(140, 170, 30, 30); // الرأس
+            rect(120, 200, 10, 20); // اليد اليسرى
+            rect(150, 200, 10, 20); // اليد اليمنى
+
+            // رسم طبق المعكرونة بالدجاج
+            fill(255, 200, 100);
+            ellipse(120, 220, 30, 10); // الطبق
+            fill(255, 255, 0);
+            ellipse(120, 220, 20, 5); // المعكرونة
+
+            // إضافة الحركة لرائد الفضاء
+            document.querySelector('#canvas-container').classList.add('astronaut-animation');
+        }
+
         function goToDetailsPage() {
-            window.location.href = "your-link-here"; // رابط الصفحة الخاصة بالتفاصيل
+            window.location.href = "your-link-here";
         }
 
         function goToCookInSpace() {
-            window.location.href = "https://example.com"; // رابط صفحة "Cook in Space"
+            window.location.href = "https://example.com";
         }
     </script>
 
