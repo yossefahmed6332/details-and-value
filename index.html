@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,13 +113,12 @@
 
         .floating-image {
             position: fixed;
-            bottom: 40px;  /* تقريب الصورة أكثر إلى البوكسات */
-            right: 30px;  /* تقريب الصورة أكثر إلى البوكسات */
-            width: 120px; /* تقليل الحجم قليلاً */
-            height: 120px; /* تقليل الحجم قليلاً */
+            bottom: 40px;
+            right: 30px;
+            width: 120px;
+            height: 120px;
             animation: floatUp 4s ease-in-out infinite;
-            background-color: transparent; /* إزالة الخلفية السوداء */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* إضافة الظل حول الصورة */
+            background-color: transparent;
         }
 
         @keyframes fadeIn {
@@ -148,6 +147,41 @@
             100% {
                 transform: translateY(0);
             }
+        }
+
+        /* Typing effect */
+        .typing {
+            display: inline-block;
+            border-right: 3px solid white;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 4s steps(30) 1s forwards, blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Welcome message style */
+        #welcomeMessage {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
         }
 
         /* Responsive Design */
@@ -247,34 +281,41 @@
 
     <img src="https://i.imgur.com/f5UZrvk.jpg" alt="Floating Image" class="floating-image">
 
+    <div id="welcomeMessage">
+        <p>Welcome to the site! Enjoy our special offer!</p>
+    </div>
+
     <script>
+        // Typing Effect
+        window.onload = function() {
+            var textElement = document.querySelector('.typing');
+            textElement.innerHTML = 'Welcome to our site! Enjoy our special offer!';
+        };
+
+        // Show welcome message
+        function showWelcomeMessage() {
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            welcomeMessage.style.display = 'block';
+
+            setTimeout(function() {
+                welcomeMessage.style.display = 'none';
+            }, 5000); // Hide after 5 seconds
+        }
+
+        // Call welcome message when the page is loaded
+        if (!localStorage.getItem('visited')) {
+            showWelcomeMessage();
+            localStorage.setItem('visited', 'true');
+        }
+
+        // Navigation Functions
         function goToDetailsPage() {
-            animateButton("Details");
-            setTimeout(() => {
-                window.location.href = "your-link-here"; // رابط الصفحة الخاصة بالتفاصيل
-            }, 500); // تأخير صغير لإعطاء تأثير النقر
+            window.location.href = '#details';
         }
 
         function goToCookInSpace() {
-            animateButton("Cook in Space");
-            setTimeout(() => {
-                window.location.href = "https://example.com"; // رابط صفحة "Cook in Space"
-            }, 500); // تأخير صغير لإعطاء تأثير النقر
-        }
-
-        function animateButton(buttonText) {
-            const buttons = document.querySelectorAll('.box');
-            buttons.forEach(button => {
-                if (button.textContent === buttonText) {
-                    button.style.transform = "scale(1.2)";
-                    button.style.transition = "transform 0.2s";
-                    setTimeout(() => {
-                        button.style.transform = "scale(1)";
-                    }, 200); // إعادة الحجم الطبيعي بعد التأثير
-                }
-            });
+            window.location.href = '#cookInSpace';
         }
     </script>
-
 </body>
 </html>
