@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <title>Landing Page with Animation</title>
     <style>
         * {
             margin: 0;
@@ -15,24 +14,100 @@
         body, html {
             height: 100%;
             font-family: Arial, sans-serif;
-            background-color: #000; /* خلفية ثابتة للصفحة */
-            position: relative;
-            overflow: hidden;
+            background-image: url('https://i.imgur.com/ZELcG3u.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         .container {
             display: flex;
             height: 100%;
+            flex-direction: row;
         }
 
-        .image-section {
-            width: 100%; /* ملاءمة الحجم مع الشاشة بالكامل */
+        /* تعديل: الجزء الأيمن يحتوي على الأنيميشن */
+        .animation-section {
+            width: 40%;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
+        .scene {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .astronaut {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .planet {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #ff9800;
+            border-radius: 50%;
+            animation: orbit 5s linear infinite;
+        }
+
+        .planet:nth-child(1) {
+            width: 50px;
+            height: 50px;
+            background-color: #03a9f4;
+            animation-duration: 6s;
+            top: -10px;
+            left: 50%;
+        }
+
+        .planet:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            background-color: #ff5722;
+            animation-duration: 8s;
+            top: 50%;
+            left: -10px;
+        }
+
+        .planet:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            background-color: #9c27b0;
+            animation-duration: 10s;
+            top: 100%;
+            left: 50%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+            50% {
+                transform: translate(-50%, -50%) translateY(-20px);
+            }
+            100% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+        }
+
+        @keyframes orbit {
+            0% {
+                transform: rotate(0deg) translateX(100px) rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg) translateX(100px) rotate(-360deg);
+            }
+        }
+
+        /* تعديل: قسم النصوص */
         .text-section {
             width: 60%;
             display: flex;
@@ -43,26 +118,31 @@
         }
 
         .title, .section-title, .paragraph {
-            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         .title {
             font-size: 28px;
             font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left;
+            animation: fadeIn 1s 1s forwards;
         }
 
         .section-title {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left;
+            animation: fadeIn 1s 2s forwards;
         }
 
         .paragraph {
             font-size: 18px;
-        }
-
-        .boxes-container {
-            display: flex;
-            margin-top: 20px;
+            text-align: left;
+            margin-bottom: 15px;
+            animation: fadeIn 1s 3s forwards;
         }
 
         .box {
@@ -79,97 +159,119 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            animation: fadeIn 1s 4s forwards, pulse 2s infinite;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        /* الحركة لرائد الفضاء */
-        .astronaut-animation {
-            animation: floatUpDown 3s infinite ease-in-out;
+        .box:hover {
+            background-color: #0055a5;
+            transform: scale(1.05);
         }
 
-        @keyframes floatUpDown {
-            0% {
+        .boxes-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s 4s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
             }
             50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0);
+                transform: scale(1.1);
             }
         }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .animation-section {
+                width: 100%;
+                height: auto;
+            }
+
+            .text-section {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .title {
+                font-size: 24px;
+            }
+
+            .paragraph {
+                font-size: 16px;
+            }
+
+            .box {
+                width: 150px;
+                height: 45px;
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            .boxes-container {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="image-section">
-            <div id="canvas-container"></div>
+        <div class="animation-section">
+            <div class="scene">
+                <div class="astronaut">
+                    <img src="https://i.imgur.com/xILiWGi.jpg" alt="Pixelated Astronaut" width="100">
+                </div>
+                <div class="planet"></div>
+                <div class="planet"></div>
+                <div class="planet"></div>
+            </div>
         </div>
         <div class="text-section">
             <div class="title">Cook Every 15 Minutes – The Ultimate Time-Saver Cookbook</div>
             <p class="paragraph">
-                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time. The book features a collection of quick and delicious recipes that take no more than 15 minutes to prepare, making it the ideal choice for those with busy lifestyles who still want to enjoy great meals with minimal effort.
+                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time.
             </p>
             <p class="paragraph">
-                Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
+                Whether you're a beginner in the kitchen or a professional chef, this book will help you create a variety of meals that fit into your tight schedule.
             </p>
-
             <div class="boxes-container">
-                <div class="box" onclick="goToDetailsPage()">Details</div>
-                <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
+                <div class="box-container">
+                    <div class="box" onclick="goToDetailsPage()">Details</div>
+                </div>
+                <div class="box-container">
+                    <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        function setup() {
-            let canvas = createCanvas(windowWidth, windowHeight); // ملائمة الحجم مع الشاشة
-            canvas.parent('canvas-container');
-            noLoop();
-        }
-
-        function draw() {
-            background(0);
-
-            // رسم كوكب زحل
-            drawSaturn();
-
-            // رسم رائد الفضاء
-            drawAstronaut();
-        }
-
-        function drawSaturn() {
-            fill(200, 150, 50);
-            ellipse(100, 80, 150, 70); // الحلقات
-            fill(180, 120, 40);
-            ellipse(100, 80, 100, 50); // الكوكب
-        }
-
-        function drawAstronaut() {
-            // رسم الجسم
-            fill(255);
-            rect(500, 300, 40, 100); // الجسم
-            ellipse(520, 250, 60, 60); // الرأس
-            rect(490, 320, 20, 40); // اليد اليسرى
-            rect(530, 320, 20, 40); // اليد اليمنى
-
-            // رسم طبق المعكرونة بالدجاج
-            fill(255, 200, 100);
-            ellipse(500, 370, 50, 20); // الطبق
-            fill(255, 255, 0);
-            ellipse(500, 370, 35, 10); // المعكرونة
-
-            // تطبيق الحركة لرائد الفضاء
-            document.querySelector('canvas').classList.add('astronaut-animation');
-        }
-
         function goToDetailsPage() {
-            window.location.href = "your-link-here";
+            alert("Details Page!");
         }
 
         function goToCookInSpace() {
-            window.location.href = "https://example.com";
+            alert("Cook in Space!");
         }
     </script>
 
