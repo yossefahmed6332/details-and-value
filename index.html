@@ -255,6 +255,7 @@
             
             <!-- Added the previous three paragraphs that were missing -->
             <p class="paragraph typing">
+                Something for Everyone: Recipes for Meat Lovers and Vegetarians
                 In "Cook Every 15 Minutes," we offer a wide variety of recipes designed to satisfy all tastes. Whether you're passionate about meat dishes or prefer plant-based meals, you'll find numerous options that cater to your needs. The book is divided into two specialized sections: one dedicated to hearty meat dishes and protein-packed juices, and the other focused on delicious, healthy plant-based recipes using fresh, vegetarian ingredients. This division ensures a culinary journey that caters to both meat lovers and vegetarians. Each recipe is crafted to be ready in just 15 minutes, offering the perfect solution for those who want to enjoy a tasty, nutritious meal in no time.
             </p>
 
@@ -288,23 +289,22 @@
 
             setTimeout(function() {
                 welcomeMessage.style.display = 'none';
-            }, 5000); // Hide after 5 seconds
+            }, 3000); // Hide message after 3 seconds
         }
 
-        // Call welcome message when the page is loaded
-        if (!localStorage.getItem('visited')) {
-            showWelcomeMessage();
-            localStorage.setItem('visited', 'true');
-        }
+        // Call the function when page loads
+        window.onload = showWelcomeMessage;
 
-        // Navigation Functions
+        // Function to navigate to the details page
         function goToDetailsPage() {
-            window.location.href = '#details';
+            window.location.href = "#";
         }
 
+        // Function to navigate to the 'Cook in Space' page
         function goToCookInSpace() {
-            window.location.href = '#cookInSpace';
+            window.location.href = "#";
         }
     </script>
+
 </body>
 </html>
