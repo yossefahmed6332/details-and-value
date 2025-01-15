@@ -111,26 +111,14 @@
             animation: fadeIn 1s 4s forwards;
         }
 
-        /* حركة الصورة */
+        /* Animation for the floating image */
         .floating-image {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
             width: 80px;
             height: 80px;
-            animation: floatUp 3s ease-in-out infinite;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0);
-            }
+            animation: floatUpDown 5s ease-in-out infinite;
         }
 
         @keyframes fadeIn {
@@ -146,6 +134,18 @@
             }
             50% {
                 transform: scale(1.1);
+            }
+        }
+
+        @keyframes floatUpDown {
+            0% {
+                transform: translateY(0); /* starting point */
+            }
+            50% {
+                transform: translateY(-20px); /* move up */
+            }
+            100% {
+                transform: translateY(0); /* move back to the original position */
             }
         }
 
@@ -244,7 +244,7 @@
         </div>
     </div>
 
-    <img src="https://i.imgur.com/f5UZrvk.jpg" alt="Floating Image" class="floating-image">
+    <img src="https://imgur.com/f5UZrvk" alt="Floating Image" class="floating-image">
 
     <script>
         function goToDetailsPage() {
