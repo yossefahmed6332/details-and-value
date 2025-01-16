@@ -127,21 +127,10 @@
 
         .animated-image {
             position: absolute;
-            bottom: 0;
+            bottom: 20px;  /* تحريك الصورة إلى أسفل */
             right: 20px;
             width: 100px;
             height: 100px;
-            animation: moveUpDown 2s infinite alternate; /* الأنيميشن */
-        }
-
-        /* أنيميشن التحرك من الأعلى للأسفل */
-        @keyframes moveUpDown {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(50px);
-            }
         }
 
         /* Responsive Design */
