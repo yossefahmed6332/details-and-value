@@ -50,7 +50,7 @@
             color: white;
         }
 
-        .title, .section-title, .paragraph {
+        .title, .section-title {
             opacity: 0;
             transform: translateY(20px);
         }
@@ -75,7 +75,10 @@
             font-size: 18px;
             text-align: left;
             margin-bottom: 15px;
-            animation: fadeIn 1s 3s forwards;
+            animation: typingEffect 5s steps(40) forwards;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid white;
         }
 
         .box {
@@ -149,39 +152,10 @@
             }
         }
 
-        /* Typing effect */
-        .typing {
-            display: inline-block;
-            border-right: 3px solid white;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 0;
-            animation: typing 4s steps(30) 1s forwards, blink 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
+        @keyframes typingEffect {
             to {
                 width: 100%;
             }
-        }
-
-        @keyframes blink {
-            50% {
-                border-color: transparent;
-            }
-        }
-
-        /* Welcome message style */
-        #welcomeMessage {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            display: none;
         }
 
         /* Responsive Design */
@@ -249,7 +223,7 @@
         <div class="text-section">
             <div class="title">Cook Every 15 Minutes – The Ultimate Time-Saver Cookbook</div>
             <p class="paragraph">
-                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time. The book features a collection of quick and delicious recipes that take no more than 15 minutes to prepare, making it the ideal choice for those with busy lifestyles who still want to enjoy great meals with minimal effort.
+                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time.
             </p>
             <p class="paragraph">
                 Whether you're a beginner in the kitchen or a professional chef, this book will help you create a variety of meals that fit into your tight schedule, using simple and easy-to-find ingredients.
@@ -257,65 +231,10 @@
             <p class="paragraph">
                 Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
             </p>
-            
-            <div class="section-title">Something for Everyone: Recipes for Meat Lovers and Vegetarians</div>
-            <p class="paragraph">
-                In "Cook Every 15 Minutes," we offer a wide variety of recipes designed to satisfy all tastes. Whether you're passionate about meat dishes or prefer plant-based meals, you'll find numerous options that cater to your needs. The book is divided into two specialized sections: one dedicated to hearty meat dishes and protein-packed juices, and the other focused on delicious, healthy plant-based recipes using fresh, vegetarian ingredients. This division ensures a culinary journey that caters to both meat lovers and vegetarians. Each recipe is crafted to be ready in just 15 minutes, offering the perfect solution for those who want to enjoy a tasty, nutritious meal in no time.
-            </p>
-
-            <div class="section-title">Why You Need This Cookbook</div>
-            <p class="paragraph">
-                This cookbook is the perfect solution for individuals with busy lives who still want to enjoy delicious, healthy meals without spending a lot of time in the kitchen. With recipes that can be prepared in just 15 minutes, it offers a quick and convenient way to prepare tasty dishes. Whether you're a meat lover or follow a plant-based diet, this book has something for everyone, with sections dedicated to both protein-packed meat dishes and fresh, vegetarian meals. The recipes are designed using simple, easy-to-find ingredients, ensuring that even beginners can cook with ease. By providing healthy, balanced meals in a short amount of time, this cookbook is the ideal choice for anyone looking to save time while eating well.
-            </p>
-
-            <div class="boxes-container">
-                <div class="box-container">
-                    <div class="box" onclick="goToDetailsPage()">Details</div>
-                </div>
-                <div class="box-container">
-                    <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
-                </div>
-            </div>
         </div>
     </div>
 
-    <img src="https://i.imgur.com/f5UZrvk.jpg" alt="Floating Image" class="floating-image">
+    <img src="https://i.imgur.com/Ac70ncK.jpg" alt="Floating Image" class="floating-image">
 
-    <div id="welcomeMessage">
-        <p>Welcome to the site! Enjoy our special offer!</p>
-    </div>
-
-    <script>
-        // Typing Effect
-        window.onload = function() {
-            var textElement = document.querySelector('.typing');
-            textElement.innerHTML = 'Welcome to our site! Enjoy our special offer!';
-        };
-
-        // Show welcome message
-        function showWelcomeMessage() {
-            const welcomeMessage = document.getElementById('welcomeMessage');
-            welcomeMessage.style.display = 'block';
-
-            setTimeout(function() {
-                welcomeMessage.style.display = 'none';
-            }, 5000); // Hide after 5 seconds
-        }
-
-        // Call welcome message when the page is loaded
-        if (!localStorage.getItem('visited')) {
-            showWelcomeMessage();
-            localStorage.setItem('visited', 'true');
-        }
-
-        // Navigation Functions
-        function goToDetailsPage() {
-            window.location.href = '#details';
-        }
-
-        function goToCookInSpace() {
-            window.location.href = '#cookInSpace';
-        }
-    </script>
 </body>
 </html>
