@@ -21,7 +21,7 @@
         }
 
         .welcome-container {
-            background: linear-gradient(45deg, #ffc107, #ff5722);
+            background-color: #007bff; /* تغيير اللون الأزرق */
             color: white;
             padding: 50px 20px;
             text-align: center;
@@ -282,29 +282,14 @@
     <script>
         function goToDetailsPage() {
             animateButton("Details");
-            setTimeout(() => {
-                window.location.href = "your-link-here"; // رابط الصفحة الخاصة بالتفاصيل
-            }, 500); // تأخير صغير لإعطاء تأثير النقر
         }
 
         function goToCookInSpace() {
             animateButton("Cook in Space");
-            setTimeout(() => {
-                window.location.href = "https://example.com"; // رابط صفحة "Cook in Space"
-            }, 500); // تأخير صغير لإعطاء تأثير النقر
         }
 
-        function animateButton(buttonText) {
-            const buttons = document.querySelectorAll('.box');
-            buttons.forEach(button => {
-                if (button.textContent === buttonText) {
-                    button.style.transform = "scale(1.2)";
-                    button.style.transition = "transform 0.2s";
-                    setTimeout(() => {
-                        button.style.transform = "scale(1)";
-                    }, 200); // إعادة الحجم الطبيعي بعد التأثير
-                }
-            });
+        function animateButton(text) {
+            alert(`Button clicked: ${text}`);
         }
     </script>
 
