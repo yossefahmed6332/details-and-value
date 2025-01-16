@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +50,7 @@
             color: white;
         }
 
-        .title, .section-title {
+        .title, .section-title, .paragraph {
             opacity: 0;
             transform: translateY(20px);
         }
@@ -75,10 +75,7 @@
             font-size: 18px;
             text-align: left;
             margin-bottom: 15px;
-            animation: typingEffect 5s steps(40) forwards;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid white;
+            animation: fadeIn 1s 3s forwards;
         }
 
         .box {
@@ -114,14 +111,14 @@
             animation: fadeIn 1s 4s forwards;
         }
 
-        .floating-image {
-            position: fixed;
-            bottom: 40px;
-            right: 30px;
-            width: 120px;
-            height: 120px;
-            animation: floatUp 4s ease-in-out infinite;
-            background-color: transparent;
+        .corner-image {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            animation: bounce 2s infinite ease-in-out;
         }
 
         @keyframes fadeIn {
@@ -140,21 +137,12 @@
             }
         }
 
-        @keyframes floatUp {
-            0% {
+        @keyframes bounce {
+            0%, 100% {
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-50px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes typingEffect {
-            to {
-                width: 100%;
+                transform: translateY(-10px);
             }
         }
 
@@ -211,6 +199,11 @@
                 font-size: 14px;
                 padding: 8px 18px;
             }
+
+            .corner-image {
+                width: 80px;
+                height: 80px;
+            }
         }
     </style>
 </head>
@@ -223,18 +216,51 @@
         <div class="text-section">
             <div class="title">Cook Every 15 Minutes – The Ultimate Time-Saver Cookbook</div>
             <p class="paragraph">
-                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time.
+                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time. The book features a collection of quick and delicious recipes that take no more than 15 minutes to prepare, making it the ideal choice for those with busy lifestyles who still want to enjoy great meals with minimal effort.
             </p>
-            <p class="paragraph">
-                Whether you're a beginner in the kitchen or a professional chef, this book will help you create a variety of meals that fit into your tight schedule, using simple and easy-to-find ingredients.
-            </p>
-            <p class="paragraph">
-                Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
-            </p>
+            
+            <div class="boxes-container">
+                <div class="box-container">
+                    <div class="box" onclick="goToDetailsPage()">Details</div>
+                </div>
+                <div class="box-container">
+                    <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <img src="https://i.imgur.com/Ac70ncK.jpg" alt="Floating Image" class="floating-image">
+    <!-- Corner Image -->
+    <img src="https://i.imgur.com/cgwSe7u.jpeg" alt="Corner Decorative Image" class="corner-image">
+
+    <script>
+        function goToDetailsPage() {
+            animateButton("Details");
+            setTimeout(() => {
+                window.location.href = "your-link-here";
+            }, 500);
+        }
+
+        function goToCookInSpace() {
+            animateButton("Cook in Space");
+            setTimeout(() => {
+                window.location.href = "https://example.com";
+            }, 500);
+        }
+
+        function animateButton(buttonText) {
+            const buttons = document.querySelectorAll('.box');
+            buttons.forEach(button => {
+                if (button.textContent === buttonText) {
+                    button.style.transform = "scale(1.2)";
+                    button.style.transition = "transform 0.2s";
+                    setTimeout(() => {
+                        button.style.transform = "scale(1)";
+                    }, 200);
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
