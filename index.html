@@ -75,6 +75,7 @@
             justify-content: flex-start;
             padding: 20px;
             color: white;
+            position: relative; /* لتحديد الموقع النسبي للصورة المتحركة */
         }
 
         .title, .section-title, .paragraph {
@@ -141,7 +142,7 @@
         .animated-image {
             position: absolute;
             bottom: 20px;
-            right: 10px; /* تحريك الصورة إلى اليمين بجانب البوكس */
+            right: 0; /* تحريك الصورة إلى أقصى اليمين داخل العنصر */
             width: 100px;
             height: 100px;
             animation: moveDown 2s infinite; /* تعديل الحركة إلى الأسفل */
