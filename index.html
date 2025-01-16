@@ -14,25 +14,24 @@
         body, html {
             height: 100%;
             font-family: Arial, sans-serif;
-            background-image: url('https://i.imgur.com/zKBg8mI.jpeg');
+            background-image: url('https://i.imgur.com/ZELcG3u.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
         .welcome-container {
-            background-image: url('https://i.imgur.com/JayqIIR.png'); /* استخدام الصورة كخلفية */
-            background-size: cover;
-            background-position: center;
-            height: 250px; /* تحديد ارتفاع رسالة الترحيب */
+            background-color: #0056b3; /* لون أزرق أغمق */
             color: white;
             padding: 50px 20px;
             text-align: center;
             font-size: 1.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            opacity: 0; /* بداية غير مرئية */
-            transform: scale(0.8); /* بداية مقياس أصغر */
-            animation: fadeIn 1.5s forwards; /* تطبيق الأنيميشن */
+            background-image: url('https://i.imgur.com/JayqIIR.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: fadeIn 1.5s forwards;
         }
 
         .welcome-container h1 {
@@ -146,13 +145,12 @@
             width: 100px;
             height: 100px;
             animation: moveUpDown 2s infinite;
-            z-index: 10;
         }
 
         @keyframes fadeIn {
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: translateY(0);
             }
         }
 
