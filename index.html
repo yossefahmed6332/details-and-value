@@ -28,13 +28,13 @@
             background-color: rgba(0, 0, 0, 0.5); /* لون أسود بشفافية 50% */
         }
 
-        /* الخط الجانبي الأيمن */
+        /* الخط الجانبي الأيسر */
         .right-line {
             position: absolute;
             top: 0;
-            right: 0;
-            width: 0; /* يبدأ غير مرئي */
+            left: 0; /* نقل الخط إلى اليسار */
             height: 100%; /* طول الصفحة */
+            width: 0; /* يبدأ غير مرئي */
             background: #001a33; /* اللون الأزرق الغامق جدًا */
             animation: growLine 2s ease-in-out forwards; /* تأثير النمو */
         }
@@ -62,11 +62,11 @@
         img {
             position: absolute;
             bottom: 90px; /* فوق الخط الأفقي مباشرة */
-            left: 50px; /* تحريك الصورة نحو اليمين */
+            right: 50px; /* نقل الصور إلى اليمين */
             width: 100px; /* عرض الصورة الأصلي */
             height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
             transform: scale(6); /* تكبير الصورة بنسبة 600% */
-            transform-origin: bottom left; /* نقطة التحويل */
+            transform-origin: bottom right; /* نقطة التحويل */
             opacity: 0; /* تبدأ غير مرئية */
         }
 
