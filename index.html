@@ -48,122 +48,51 @@
             background: #ab4010; /* اللون الجديد (#ab4010) */
         }
 
-        /* الصورة الأولى على الجانب الأيسر فوق الخط الأفقي */
+        /* الصور */
+        img {
+            position: absolute;
+            bottom: 90px; /* فوق الخط الأفقي مباشرة */
+            left: 50px; /* تحريك الصورة نحو اليمين */
+            width: 100px; /* عرض الصورة الأصلي */
+            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+            transform: scale(6); /* تكبير الصورة بنسبة 600% */
+            transform-origin: bottom left; /* نقطة التحويل */
+            opacity: 0; /* تبدأ غير مرئية */
+        }
+
+        /* الصورة الأولى */
         .left-image {
-            position: absolute;
-            bottom: 90px; /* فوق الخط الأفقي مباشرة */
-            left: 50px; /* تحريك الصورة نحو اليمين */
-            width: 100px; /* عرض الصورة الأصلي */
-            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
-            animation: imageFade 4s ease-in-out forwards; /* تأثير الصورة */
-            background-color: transparent; /* إزالة الخلفية السوداء للصورة */
-            transform: scale(6); /* تكبير الصورة بنسبة 600% */
-            transform-origin: bottom left; /* نقطة التحويل */
+            animation: imageFade 7.5s ease-in-out 0s forwards; /* إجمالي الوقت: 7.5 ثوانٍ */
         }
 
-        /* الصورة الثانية على الجانب الأيسر فوق الخط الأفقي */
+        /* الصورة الثانية */
         .second-image {
-            position: absolute;
-            bottom: 90px; /* فوق الخط الأفقي مباشرة */
-            left: 50px; /* تحريك الصورة نحو اليمين */
-            width: 100px; /* عرض الصورة الأصلي */
-            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
-            animation: secondImageFade 9s ease-in-out forwards; /* تأثير الصورة الثانية */
-            background-color: transparent; /* إزالة الخلفية السوداء للصورة */
-            transform: scale(6); /* تكبير الصورة بنسبة 600% */
-            transform-origin: bottom left; /* نقطة التحويل */
-            opacity: 0; /* تبدأ غير مرئية */
+            animation: imageFade 8s ease-in-out 7.5s forwards; /* إجمالي الوقت: 8 ثوانٍ، يبدأ بعد انتهاء الأولى */
         }
 
-        /* الصورة الثالثة على الجانب الأيسر فوق الخط الأفقي */
+        /* الصورة الثالثة */
         .third-image {
-            position: absolute;
-            bottom: 90px; /* فوق الخط الأفقي مباشرة */
-            left: 50px; /* تحريك الصورة نحو اليمين */
-            width: 100px; /* عرض الصورة الأصلي */
-            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
-            animation: thirdImageFade 14s ease-in-out forwards; /* تأثير الصورة الثالثة */
-            background-color: transparent; /* إزالة الخلفية السوداء للصورة */
-            transform: scale(6); /* تكبير الصورة بنسبة 600% */
-            transform-origin: bottom left; /* نقطة التحويل */
-            opacity: 0; /* تبدأ غير مرئية */
+            animation: imageFade 7s ease-in-out 15.5s forwards; /* إجمالي الوقت: 7 ثوانٍ، يبدأ بعد انتهاء الثانية */
         }
 
-        /* الصورة الرابعة على الجانب الأيسر فوق الخط الأفقي */
+        /* الصورة الرابعة */
         .fourth-image {
-            position: absolute;
-            bottom: 90px; /* فوق الخط الأفقي مباشرة */
-            left: 50px; /* تحريك الصورة نحو اليمين */
-            width: 100px; /* عرض الصورة الأصلي */
-            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
-            animation: fourthImageFade 19s ease-in-out forwards; /* تأثير الصورة الرابعة */
-            background-color: transparent; /* إزالة الخلفية السوداء للصورة */
-            transform: scale(6); /* تكبير الصورة بنسبة 600% */
-            transform-origin: bottom left; /* نقطة التحويل */
-            opacity: 0; /* تبدأ غير مرئية */
+            animation: imageFade 7s ease-in-out 22.5s forwards; /* إجمالي الوقت: 7 ثوانٍ، يبدأ بعد انتهاء الثالثة */
         }
 
-        /* تأثير الصورة الأولى */
+        /* تأثير الصور */
         @keyframes imageFade {
             0% {
                 opacity: 0; /* تبدأ غير مرئية */
             }
-            25% { /* 1 ثانية من 4 ثوانٍ */
-                opacity: 1; /* تصبح مرئية */
+            13.33% { /* أول ثانية */
+                opacity: 1; /* تظهر */
             }
-            75% { /* 3 ثوانٍ من 4 ثوانٍ */
-                opacity: 1; /* تبقى مرئية */
-            }
-            100% {
-                opacity: 0; /* تختفي */
-            }
-        }
-
-        /* تأثير الصورة الثانية */
-        @keyframes secondImageFade {
-            0%, 50% { /* 0% إلى 4 ثوانٍ (فترة اختفاء الصورة الأولى) */
-                opacity: 0; /* تبدأ غير مرئية */
-            }
-            56.25% { /* بعد اختفاء الصورة الأولى مباشرة */
-                opacity: 1; /* تصبح مرئية */
-            }
-            87.5% { /* تبقى مرئية */
+            80% { /* تظل مرئية */
                 opacity: 1;
             }
-            100% {
-                opacity: 0; /* تختفي */
-            }
-        }
-
-        /* تأثير الصورة الثالثة */
-        @keyframes thirdImageFade {
-            0%, 66.67% { /* 0% إلى 8 ثوانٍ (فترة اختفاء الصورة الثانية) */
-                opacity: 0; /* تبدأ غير مرئية */
-            }
-            68.75% { /* بعد اختفاء الصورة الثانية مباشرة */
-                opacity: 1; /* تصبح مرئية */
-            }
-            95.83% { /* تبقى مرئية */
-                opacity: 1;
-            }
-            100% {
-                opacity: 0; /* تختفي */
-            }
-        }
-
-        /* تأثير الصورة الرابعة */
-        @keyframes fourthImageFade {
-            0%, 95% { /* 0% إلى 14 ثانية (فترة اختفاء الصورة الثالثة) */
-                opacity: 0; /* تبدأ غير مرئية */
-            }
-            95% { /* بعد اختفاء الصورة الثالثة مباشرة */
-                opacity: 1; /* تصبح مرئية */
-            }
-            98.5% { /* تبقى مرئية */
-                opacity: 1;
-            }
-            100% {
-                opacity: 0; /* تختفي */
+            100% { /* تختفي */
+                opacity: 0;
             }
         }
     </style>
