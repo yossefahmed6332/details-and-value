@@ -28,23 +28,23 @@
             background-color: rgba(0, 0, 0, 0.5); /* لون أسود بشفافية 50% */
         }
 
-        /* الخط الجانبي الأيسر */
-        .left-line {
+        /* الخط الجانبي الأيمن */
+        .right-line {
             position: absolute;
             top: 0;
-            left: 0;
-            width: 180px; /* عرض الخط العمودي */
-            height: 0; /* يبدأ غير مرئي */
+            right: 0;
+            width: 0; /* يبدأ غير مرئي */
+            height: 100%; /* طول الصفحة */
             background: #001a33; /* اللون الأزرق الغامق جدًا */
             animation: growLine 2s ease-in-out forwards; /* تأثير النمو */
         }
 
         @keyframes growLine {
             0% {
-                height: 0; /* يبدأ من الصفر */
+                width: 0; /* يبدأ من الصفر */
             }
             100% {
-                height: 100%; /* يكتمل بطول الصفحة */
+                width: 180px; /* يكتمل بعرض الخط */
             }
         }
 
@@ -62,11 +62,11 @@
         img {
             position: absolute;
             bottom: 90px; /* فوق الخط الأفقي مباشرة */
-            right: 50px; /* تحريك الصورة نحو اليسار */
+            left: 50px; /* تحريك الصورة نحو اليمين */
             width: 100px; /* عرض الصورة الأصلي */
             height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
             transform: scale(6); /* تكبير الصورة بنسبة 600% */
-            transform-origin: bottom right; /* نقطة التحويل */
+            transform-origin: bottom left; /* نقطة التحويل */
             opacity: 0; /* تبدأ غير مرئية */
         }
 
@@ -109,7 +109,7 @@
 </head>
 <body>
     <div class="overlay"></div> <!-- الطبقة السوداء -->
-    <div class="left-line"></div>
+    <div class="right-line"></div>
     <div class="bottom-line"></div>
     <img src="https://i.imgur.com/Snxs87l.png" alt="صورة" class="left-image"> <!-- الصورة الأولى -->
     <img src="https://i.imgur.com/BKs8xOq.png" alt="صورة" class="second-image"> <!-- الصورة الثانية -->
