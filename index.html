@@ -36,7 +36,6 @@
             width: 180px; /* عرض الخط العمودي */
             height: 100%;
             background: #ab4010; /* اللون الجديد (#ab4010) */
-            animation: fadeIn 1.5s ease-in-out;
         }
 
         /* الخط السفلي */
@@ -47,16 +46,34 @@
             width: 100%;
             height: 90px; /* ارتفاع الخط الأفقي */
             background: #ab4010; /* اللون الجديد (#ab4010) */
-            animation: fadeIn 1.5s ease-in-out;
         }
 
-        /* تأثير fade-in */
-        @keyframes fadeIn {
+        /* الصورة على الجانب الأيسر فوق الخط الأفقي */
+        .left-image {
+            position: absolute;
+            bottom: 90px; /* فوق الخط الأفقي مباشرة */
+            left: 50px; /* تحريك الصورة نحو اليمين */
+            width: 100px; /* عرض الصورة الأصلي */
+            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+            animation: imageFade 6s ease-in-out forwards; /* تأثير الصورة */
+            background-color: transparent; /* إزالة الخلفية السوداء للصورة */
+            transform: scale(5); /* تكبير الصورة بنسبة 500% */
+            transform-origin: bottom left; /* نقطة التحويل */
+        }
+
+        /* تأثير الصورة */
+        @keyframes imageFade {
             0% {
-                opacity: 0;
+                opacity: 0; /* تبدأ غير مرئية */
+            }
+            16.67% { /* 1 ثانية من 6 ثوانٍ */
+                opacity: 1; /* تصبح مرئية */
+            }
+            83.33% { /* 5 ثوانٍ من 6 ثوانٍ */
+                opacity: 1; /* تبقى مرئية */
             }
             100% {
-                opacity: 1;
+                opacity: 0; /* تختفي */
             }
         }
     </style>
@@ -65,5 +82,6 @@
     <div class="overlay"></div> <!-- الطبقة السوداء -->
     <div class="right-line"></div>
     <div class="bottom-line"></div>
+    <img src="https://i.imgur.com/Snxs87l.png" alt="صورة" class="left-image"> <!-- الصورة على الجانب الأيسر -->
 </body>
 </html>
