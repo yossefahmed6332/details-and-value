@@ -48,7 +48,7 @@
             background: #ab4010; /* اللون الجديد (#ab4010) */
         }
 
-        /* الصورة على الجانب الأيسر فوق الخط الأفقي */
+        /* الصورة الأولى على الجانب الأيسر فوق الخط الأفقي */
         .left-image {
             position: absolute;
             bottom: 90px; /* فوق الخط الأفقي مباشرة */
@@ -61,7 +61,49 @@
             transform-origin: bottom left; /* نقطة التحويل */
         }
 
-        /* تأثير الصورة */
+        /* الصورة الثانية على الجانب الأيسر فوق الخط الأفقي */
+        .second-image {
+            position: absolute;
+            bottom: 90px; /* فوق الخط الأفقي مباشرة */
+            left: 50px; /* تحريك الصورة نحو اليمين */
+            width: 100px; /* عرض الصورة الأصلي */
+            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+            animation: secondImageFade 12s ease-in-out forwards; /* تأثير الصورة الثانية */
+            background-color: transparent; /* إزالة الخلفية السوداء للصورة */
+            transform: scale(5); /* تكبير الصورة بنسبة 500% */
+            transform-origin: bottom left; /* نقطة التحويل */
+            opacity: 0; /* تبدأ غير مرئية */
+        }
+
+        /* الصورة الثالثة على الجانب الأيسر فوق الخط الأفقي */
+        .third-image {
+            position: absolute;
+            bottom: 90px; /* فوق الخط الأفقي مباشرة */
+            left: 50px; /* تحريك الصورة نحو اليمين */
+            width: 100px; /* عرض الصورة الأصلي */
+            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+            animation: thirdImageFade 18s ease-in-out forwards; /* تأثير الصورة الثالثة */
+            background-color: transparent; /* إزالة الخلفية السوداء للصورة */
+            transform: scale(5); /* تكبير الصورة بنسبة 500% */
+            transform-origin: bottom left; /* نقطة التحويل */
+            opacity: 0; /* تبدأ غير مرئية */
+        }
+
+        /* الصورة الرابعة على الجانب الأيسر فوق الخط الأفقي */
+        .fourth-image {
+            position: absolute;
+            bottom: 90px; /* فوق الخط الأفقي مباشرة */
+            left: 50px; /* تحريك الصورة نحو اليمين */
+            width: 100px; /* عرض الصورة الأصلي */
+            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+            animation: fourthImageFade 24s ease-in-out forwards; /* تأثير الصورة الرابعة */
+            background-color: transparent; /* إزالة الخلفية السوداء للصورة */
+            transform: scale(5); /* تكبير الصورة بنسبة 500% */
+            transform-origin: bottom left; /* نقطة التحويل */
+            opacity: 0; /* تبدأ غير مرئية */
+        }
+
+        /* تأثير الصورة الأولى */
         @keyframes imageFade {
             0% {
                 opacity: 0; /* تبدأ غير مرئية */
@@ -76,12 +118,63 @@
                 opacity: 0; /* تختفي */
             }
         }
+
+        /* تأثير الصورة الثانية */
+        @keyframes secondImageFade {
+            0%, 50% { /* 0% إلى 6 ثوانٍ (فترة اختفاء الصورة الأولى) */
+                opacity: 0; /* تبدأ غير مرئية */
+            }
+            58.33% { /* 7 ثوانٍ (1 ثانية بعد اختفاء الصورة الأولى) */
+                opacity: 1; /* تصبح مرئية */
+            }
+            91.67% { /* 11 ثوانٍ (6 ثوانٍ بعد الظهور) */
+                opacity: 1; /* تبقى مرئية */
+            }
+            100% {
+                opacity: 0; /* تختفي */
+            }
+        }
+
+        /* تأثير الصورة الثالثة */
+        @keyframes thirdImageFade {
+            0%, 66.67% { /* 0% إلى 12 ثوانٍ (فترة اختفاء الصورة الثانية) */
+                opacity: 0; /* تبدأ غير مرئية */
+            }
+            72.22% { /* 13 ثوانٍ (1 ثانية بعد اختفاء الصورة الثانية) */
+                opacity: 1; /* تصبح مرئية */
+            }
+            94.44% { /* 17 ثوانٍ (6 ثوانٍ بعد الظهور) */
+                opacity: 1; /* تبقى مرئية */
+            }
+            100% {
+                opacity: 0; /* تختفي */
+            }
+        }
+
+        /* تأثير الصورة الرابعة */
+        @keyframes fourthImageFade {
+            0%, 75% { /* 0% إلى 18 ثوانٍ (فترة اختفاء الصورة الثالثة) */
+                opacity: 0; /* تبدأ غير مرئية */
+            }
+            79.17% { /* 19 ثوانٍ (1 ثانية بعد اختفاء الصورة الثالثة) */
+                opacity: 1; /* تصبح مرئية */
+            }
+            95.83% { /* 23 ثوانٍ (6 ثوانٍ بعد الظهور) */
+                opacity: 1; /* تبقى مرئية */
+            }
+            100% {
+                opacity: 0; /* تختفي */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="overlay"></div> <!-- الطبقة السوداء -->
     <div class="right-line"></div>
     <div class="bottom-line"></div>
-    <img src="https://i.imgur.com/Snxs87l.png" alt="صورة" class="left-image"> <!-- الصورة على الجانب الأيسر -->
+    <img src="https://i.imgur.com/Snxs87l.png" alt="صورة" class="left-image"> <!-- الصورة الأولى -->
+    <img src="https://i.imgur.com/BKs8xOq.png" alt="صورة" class="second-image"> <!-- الصورة الثانية -->
+    <img src="https://i.imgur.com/hmQKxD9.png" alt="صورة" class="third-image"> <!-- الصورة الثالثة -->
+    <img src="https://i.imgur.com/a1ckk7R.png" alt="صورة" class="fourth-image"> <!-- الصورة الرابعة -->
 </body>
 </html>
