@@ -37,6 +37,7 @@
             width: 0; /* يبدأ غير مرئي */
             background: #001a33; /* اللون الأزرق الغامق جدًا */
             animation: growLine 2s ease-in-out forwards; /* تأثير النمو */
+            z-index: 2; /* الخط الأزرق فوق الخط الأصفر */
         }
 
         @keyframes growLine {
@@ -44,7 +45,7 @@
                 width: 0; /* يبدأ من الصفر */
             }
             100% {
-                width: 900px; /* زيادة العرض بنسبة 500% (180px * 5) */
+                width: 990px; /* زيادة العرض بنسبة 550% (180px * 5.5) */
             }
         }
 
@@ -59,6 +60,7 @@
             display: flex;
             align-items: center;
             padding-left: 20px; /* تباعد من اليسار */
+            z-index: 1; /* الخط الأصفر تحت الخط الأزرق */
         }
 
         /* نص Contact Us */
