@@ -125,7 +125,7 @@
         .left-box {
             position: absolute;
             bottom: 120px; /* فوق الخط الأفقي مباشرة */
-            left: 40px; /* تحريك البوكس الأيسر 20 بكسل لليمين (20px + 20px) */
+            left: 150%; /* تحريك البوكس الأيسر إلى اليمين بنسبة 150% */
             width: 150px; /* عرض الصندوق */
             height: 80px; /* ارتفاع الصندوق */
             background-color: #ab4010; /* نفس لون الخط الأفقي */
@@ -137,6 +137,7 @@
             font-weight: bold; /* خط عريض */
             border-radius: 10px; /* زوايا مدورة */
             z-index: 3; /* فوق العناصر الأخرى */
+            transform: translateX(-50%); /* تعديل المركز الأفقي */
         }
 
         /* الصورة الجديدة في الجانب الأيسر */
@@ -146,7 +147,7 @@
             left: 0; /* أقصى اليسار */
             width: 100px; /* حجم الصورة */
             height: auto;
-            transform: scale(5) translateX(-10px); /* تكبير الصورة بنسبة 500% وتحريكها لليسار بمقدار 10 بكسل */
+            transform: scale(6) translateX(30%); /* تكبير الصورة بنسبة 600% وتحريكها لليمين بنسبة 30% */
             transform-origin: center; /* نقطة التحويل */
             animation: slideDown 3s ease-in-out forwards; /* تأثير الانزلاق من أعلى إلى أسفل */
             z-index: 3; /* فوق العناصر الأخرى */
@@ -158,7 +159,7 @@
             }
             100% {
                 top: 50%; /* تتوقف في منتصف الصفحة عموديًا */
-                transform: translateY(-50%) scale(5) translateX(-10px); /* تعديل المركز العمودي والتكبير والتحريك */
+                transform: translateY(-50%) scale(6) translateX(30%); /* تعديل المركز العمودي والتكبير والتحريك */
             }
         }
     </style>
