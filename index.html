@@ -105,26 +105,6 @@
                 opacity: 0;
             }
         }
-
-        /* الصورة الدوارة */
-        .rotating-image {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100px; /* حجم الصورة */
-            height: auto;
-            transform: translate(-50%, -50%) scale(1.5); /* توسيع الصورة قليلاً */
-            animation: rotateOrbit 10s linear infinite; /* دوران حول المدار */
-        }
-
-        @keyframes rotateOrbit {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg) translateX(200px) rotate(0deg); /* بداية المدار */
-            }
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg) translateX(200px) rotate(-360deg); /* نهاية المدار */
-            }
-        }
     </style>
 </head>
 <body>
@@ -139,8 +119,5 @@
         <img src="https://i.imgur.com/hmQKxD9.png" alt="صورة" class="third-image"> <!-- الصورة الثالثة -->
         <img src="https://i.imgur.com/a1ckk7R.png" alt="صورة" class="fourth-image"> <!-- الصورة الرابعة -->
     </div>
-
-    <!-- الصورة الدوارة -->
-    <img src="https://i.imgur.com/dzsVFwF.png" alt="صورة دوارة" class="rotating-image">
 </body>
 </html>
