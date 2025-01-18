@@ -138,8 +138,6 @@
             transform-origin: center; /* نقطة التحويل */
             animation: slideIn 3s ease-in-out forwards; /* تأثير الانزلاق */
             z-index: 3; /* فوق العناصر الأخرى */
-            border-top-left-radius: 50px; /* جعل الزاوية اليسرى العليا ملساء */
-            border-bottom-left-radius: 50px; /* جعل الزاوية اليسرى السفلى ملساء */
         }
 
         @keyframes slideIn {
@@ -147,7 +145,7 @@
                 left: -100%; /* تبدأ خارج الصفحة من اليسار */
             }
             100% {
-                left: calc(100% - 200px); /* تتوقف عند الجزء الأيمن مع تداخل بسيط مع الخط الأزرق */
+                left: calc(100% - 220px); /* تتوقف قبل الخط الأزرق مباشرة */
             }
         }
     </style>
