@@ -77,6 +77,7 @@
             height: 40px;
             border-radius: 50%; /* جعل الصورة دائرية */
             margin-right: 10px; /* تباعد بين الصور */
+            transform: translateX(-50px); /* إمالة الصور لليسار بمقدار 50 بكسل */
         }
 
         /* الصور المتتالية على اليسار */
@@ -86,7 +87,7 @@
             left: 50px; /* نقل الصور إلى اليسار */
             width: 100px; /* عرض الصورة الأصلي */
             height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
-            transform: scale(6); /* تكبير الصورة بنسبة 600% */
+            transform: scale(6) translateX(-50px); /* تكبير الصورة بنسبة 600% وإمالتها لليسار */
             transform-origin: bottom left; /* نقطة التحويل */
             opacity: 0; /* تبدأ غير مرئية */
         }
@@ -134,7 +135,7 @@
             left: -100%; /* تبدأ خارج الصفحة من اليسار */
             width: 100px; /* الحجم الأصلي للصورة */
             height: auto;
-            transform: scale(8); /* تكبير الصورة بنسبة 800% */
+            transform: scale(8) translateX(-50px); /* تكبير الصورة بنسبة 800% وإمالتها لليسار */
             transform-origin: center; /* نقطة التحويل */
             animation: slideIn 3s ease-in-out forwards; /* تأثير الانزلاق */
             z-index: 3; /* فوق العناصر الأخرى */
