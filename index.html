@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خلفية الصورة</title>
+    <title>Healthy and Delicious Recipes</title> <!-- العنوان الجديد -->
     <style>
         /* تعيين الخلفية للصفحة */
         body {
@@ -37,7 +37,7 @@
             width: 0; /* يبدأ غير مرئي */
             background: #001a33; /* اللون الأزرق الغامق جدًا */
             animation: growLine 2s ease-in-out forwards; /* تأثير النمو */
-            z-index: 2; /* الخط الأزرق فوق الخط الأصفر */
+            z-index: 1; /* الخط الأزرق تحت الخط الأصفر */
         }
 
         @keyframes growLine {
@@ -45,7 +45,7 @@
                 width: 0; /* يبدأ من الصفر */
             }
             100% {
-                width: 990px; /* زيادة العرض بنسبة 550% (180px * 5.5) */
+                width: 300px; /* العرض الجديد (300 بكسل) */
             }
         }
 
@@ -60,7 +60,7 @@
             display: flex;
             align-items: center;
             padding-left: 20px; /* تباعد من اليسار */
-            z-index: 1; /* الخط الأصفر تحت الخط الأزرق */
+            z-index: 2; /* الخط الأصفر فوق الخط الأزرق */
         }
 
         /* نص Contact Us */
