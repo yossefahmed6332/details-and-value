@@ -102,6 +102,42 @@
                 opacity: 1; /* تصبح مرئية بالكامل */
             }
         }
+
+        /* البوكس الأيمن */
+        .right-box {
+            position: absolute;
+            bottom: 120px; /* فوق الخط الأفقي مباشرة */
+            right: 20px; /* تباعد من الخط الأزرق */
+            width: 150px; /* عرض الصندوق */
+            height: 80px; /* ارتفاع الصندوق */
+            background-color: #ab4010; /* نفس لون الخط الأفقي */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; /* لون النص */
+            font-size: 18px; /* حجم الخط */
+            font-weight: bold; /* خط عريض */
+            border-radius: 10px; /* زوايا مدورة */
+            z-index: 3; /* فوق العناصر الأخرى */
+        }
+
+        /* البوكس الأيسر */
+        .left-box {
+            position: absolute;
+            bottom: 120px; /* فوق الخط الأفقي مباشرة */
+            left: 20px; /* تباعد من الجانب الأيسر */
+            width: 150px; /* عرض الصندوق */
+            height: 80px; /* ارتفاع الصندوق */
+            background-color: #ab4010; /* نفس لون الخط الأفقي */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; /* لون النص */
+            font-size: 18px; /* حجم الخط */
+            font-weight: bold; /* خط عريض */
+            border-radius: 10px; /* زوايا مدورة */
+            z-index: 3; /* فوق العناصر الأخرى */
+        }
     </style>
 </head>
 <body>
@@ -120,5 +156,11 @@
 
     <!-- الصورة الجديدة -->
     <img src="https://i.imgur.com/t5T80ii.png" alt="صورة عائمة" class="floating-image">
+
+    <!-- البوكس الأيمن -->
+    <div class="right-box">About Us</div>
+
+    <!-- البوكس الأيسر -->
+    <div class="left-box">About Book</div>
 </body>
 </html>
