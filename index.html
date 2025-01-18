@@ -80,52 +80,10 @@
             transform: translateX(-50px); /* إمالة الصور لليسار بمقدار 50 بكسل */
         }
 
-        /* الصور المتتالية على اليسار */
-        .left-images img {
-            position: absolute;
-            bottom: 90px; /* فوق الخط الأفقي مباشرة */
-            left: 50px; /* نقل الصور إلى اليسار */
-            width: 100px; /* عرض الصورة الأصلي */
-            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
-            transform: scale(6) translateX(-50px); /* تكبير الصورة بنسبة 600% وإمالتها لليسار */
-            transform-origin: bottom left; /* نقطة التحويل */
-            opacity: 0; /* تبدأ غير مرئية */
-        }
-
-        /* الصورة الأولى */
-        .left-image {
-            animation: imageFade 7.5s ease-in-out 0s forwards; /* إجمالي الوقت: 7.5 ثوانٍ */
-        }
-
-        /* الصورة الثانية */
-        .second-image {
-            animation: imageFade 8s ease-in-out 7.5s forwards; /* إجمالي الوقت: 8 ثوانٍ، يبدأ بعد انتهاء الأولى */
-        }
-
-        /* الصورة الثالثة */
-        .third-image {
-            animation: imageFade 7s ease-in-out 15.5s forwards; /* إجمالي الوقت: 7 ثوانٍ، يبدأ بعد انتهاء الثانية */
-        }
-
-        /* الصورة الرابعة */
-        .fourth-image {
-            animation: imageFade 7s ease-in-out 22.5s forwards; /* إجمالي الوقت: 7 ثوانٍ، يبدأ بعد انتهاء الثالثة */
-        }
-
-        /* تأثير الصور */
-        @keyframes imageFade {
-            0% {
-                opacity: 0; /* تبدأ غير مرئية */
-            }
-            100% {
-                opacity: 1; /* تصبح مرئية بالكامل */
-            }
-        }
-
         /* الصورة الجديدة */
         .floating-image {
             position: absolute;
-            top: calc(40% - 10px); /* رفع الصورة لأعلى بمقدار 10 بكسل */
+            top: calc(40% - 20px); /* رفع الصورة لأعلى بمقدار 20 بكسل */
             left: calc(100% - 220px + 5px); /* تحريك الصورة لليمين بمقدار 5 بكسل */
             width: 100px; /* الحجم الأصلي للصورة */
             height: auto;
@@ -158,14 +116,6 @@
         <img src="https://i.imgur.com/QRsal5x.png" alt="Icon 3" class="icon"> <!-- الصورة الثالثة -->
         <img src="https://i.imgur.com/5GLmOEW.png" alt="Icon 4" class="icon"> <!-- الصورة الرابعة -->
         <img src="https://i.imgur.com/527gjHT.png" alt="Icon 5" class="icon"> <!-- الصورة الخامسة -->
-    </div>
-
-    <!-- الصور المتتالية على اليسار -->
-    <div class="left-images">
-        <img src="https://i.imgur.com/Snxs87l.png" alt="صورة" class="left-image"> <!-- الصورة الأولى -->
-        <img src="https://i.imgur.com/BKs8xOq.png" alt="صورة" class="second-image"> <!-- الصورة الثانية -->
-        <img src="https://i.imgur.com/hmQKxD9.png" alt="صورة" class="third-image"> <!-- الصورة الثالثة -->
-        <img src="https://i.imgur.com/a1ckk7R.png" alt="صورة" class="fourth-image"> <!-- الصورة الرابعة -->
     </div>
 
     <!-- الصورة الجديدة -->
