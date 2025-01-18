@@ -125,7 +125,7 @@
         .left-box {
             position: absolute;
             top: calc(40% + 200px); /* أسفل الصورة اليمنى مع ترك مسافة */
-            left: calc(100% - 220px - 150px + 5px); /* على يسار الصورة */
+            right: calc(100% - 220px - 150px + 5px); /* على يمين الصورة */
             width: 150px; /* عرض الصندوق */
             height: 80px; /* ارتفاع الصندوق */
             background-color: #ab4010; /* نفس لون الخط الأفقي */
@@ -142,23 +142,23 @@
         /* الصورة الجديدة في الجانب الأيسر */
         .left-image {
             position: absolute;
-            top: -100px; /* تبدأ خارج الصفحة من الأعلى */
+            top: 40%; /* إنزال الصورة قليلاً */
             left: 0; /* أقصى اليسار */
             width: 100px; /* حجم الصورة */
             height: auto;
             transform: scale(6) translateX(30%); /* تكبير الصورة بنسبة 600% وتحريكها لليمين بنسبة 30% */
             transform-origin: center; /* نقطة التحويل */
-            animation: slideDown 3s ease-in-out forwards; /* تأثير الانزلاق من أعلى إلى أسفل */
+            animation: floatUpDown 3s ease-in-out infinite; /* تأثير الصعود والنزول بشكل دوري */
             z-index: 3; /* فوق العناصر الأخرى */
         }
 
-        @keyframes slideDown {
-            0% {
-                top: -100px; /* تبدأ خارج الصفحة من الأعلى */
+        /* تأثير الصعود والنزول */
+        @keyframes floatUpDown {
+            0%, 100% {
+                transform: translateY(0) scale(6) translateX(30%); /* الوضع الطبيعي */
             }
-            100% {
-                top: 35%; /* تتوقف في منتصف الصفحة عموديًا */
-                transform: translateY(-50%) scale(6) translateX(30%); /* تعديل المركز العمودي والتكبير والتحريك */
+            50% {
+                transform: translateY(-20px) scale(6) translateX(30%); /* الصعود لأعلى */
             }
         }
     </style>
