@@ -26,7 +26,6 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
 
-        /* الخط الرأسي يظهر من اليمين إلى اليسار */
         .right-line {
             position: absolute;
             top: 0;
@@ -43,7 +42,6 @@
             to { transform: translateX(0); }
         }
 
-        /* الخط الأفقي يظهر من الأسفل إلى الأعلى */
         .bottom-line {
             position: absolute;
             bottom: 0;
@@ -77,12 +75,12 @@
             margin-right: 10px;
         }
 
-        /* الصور تظهر بتأثير Fade In لمدة 1.5 ثانية */
         .floating-image, .left-image {
             position: absolute;
             width: 100px;
             height: auto;
             opacity: 0;
+            transform: scale(12);
             animation: fadeIn 1.5s ease-in-out forwards;
         }
 
@@ -101,7 +99,6 @@
             to { opacity: 1; }
         }
 
-        /* البوكسات تكبر من حجم صفر إلى الحجم الكامل مع تأثير متكرر */
         .right-box, .left-box {
             position: absolute;
             width: 150px;
