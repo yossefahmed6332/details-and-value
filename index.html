@@ -5,179 +5,206 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthy and Delicious Recipes</title>
     <style>
-        /* تعيين الخلفية للصفحة */
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url('https://i.imgur.com/YkcWluv.png'); /* الرابط المباشر للصورة */
-            background-size: cover; /* تغطية الخلفية بالكامل */
-            background-position: center; /* توسيط الصورة */
-            background-repeat: no-repeat; /* منع تكرار الصورة */
+            background-image: url('https://i.imgur.com/YkcWluv.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             position: relative;
             overflow: hidden;
         }
 
-        /* طبقة سوداء بشفافية 50% */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* لون أسود بشفافية 50% */
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
-        /* الخط الجانبي الأيمن */
+        /* الخط الجانبي الأيمن (يظهر من اليمين إلى اليسار) */
         .right-line {
             position: absolute;
             top: 0;
-            right: 0; /* نقل الخط إلى اليمين */
-            height: 100%; /* طول الصفحة */
-            width: 180px; /* عرض الخط الرأسي */
-            background: #001a33; /* اللون الأزرق الغامق جدًا */
-            z-index: 1; /* الخط الأزرق تحت الخط الأصفر */
+            right: 0;
+            height: 100%;
+            width: 180px;
+            background: #001a33;
+            z-index: 1;
+            transform: translateX(100%);
+            animation: slideLeft 1.5s ease-in-out forwards;
         }
 
-        /* الخط السفلي */
+        @keyframes slideLeft {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* الخط السفلي (يظهر من الأسفل إلى الأعلى) */
         .bottom-line {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 90px; /* ارتفاع الخط الأفقي */
-            background: #ab4010; /* اللون الجديد (#ab4010) */
+            height: 90px;
+            background: #ab4010;
             display: flex;
             align-items: center;
-            padding-left: 20px; /* تباعد من اليسار */
-            z-index: 2; /* الخط الأصفر فوق الخط الأزرق */
+            padding-left: 20px;
+            z-index: 2;
+            transform: translateY(100%);
+            animation: slideUp 1.5s ease-in-out forwards;
         }
 
-        /* نص Contact Us */
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
         .contact-text {
-            font-size: 24px; /* حجم الخط */
-            font-weight: bold; /* خط عريض */
-            color: white; /* لون النص */
-            margin-right: 20px; /* تباعد بين النص والصورة */
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-right: 20px;
         }
 
-        /* الصور الدائرية */
         .icon {
-            width: 40px; /* حجم الصورة */
+            width: 40px;
             height: 40px;
-            border-radius: 50%; /* جعل الصورة دائرية */
-            margin-right: 10px; /* تباعد بين الصور */
-            transform: translateX(-50px); /* إمالة الصور لليسار بمقدار 50 بكسل */
+            border-radius: 50%;
+            margin-right: 10px;
+            transform: translateX(-50px);
         }
 
-        /* الصورة الجديدة */
+        /* الصورة اليمنى (تظهر بتأثير fadeIn خلال 1.5 ثانية) */
         .floating-image {
             position: absolute;
-            top: calc(40% - 70px); /* رفع الصورة لأعلى بمقدار 70 بكسل */
-            left: calc(100% - 220px + 5px); /* تحريك الصورة لليمين بمقدار 5 بكسل */
-            width: 100px; /* الحجم الأصلي للصورة */
+            top: calc(40% - 70px);
+            left: calc(100% - 220px + 5px);
+            width: 100px;
             height: auto;
-            transform: scale(0); /* تبدأ الصورة بحجم صغير جدًا */
-            transform-origin: center; /* نقطة التحويل */
-            animation: zoomIn 2s ease-in-out forwards; /* تأثير التكبير التدريجي */
-            z-index: 3; /* فوق العناصر الأخرى */
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+            z-index: 3;
         }
 
-        /* تأثير التكبير التدريجي */
-        @keyframes zoomIn {
+        /* الصورة اليسرى (تظهر بتأثير fadeIn خلال 1.5 ثانية) */
+        .left-image {
+            position: absolute;
+            top: 40%;
+            left: 0;
+            width: 100px;
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+            z-index: 3;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* تأثير تكبير متدرج مع نبض دوري */
+        @keyframes zoomInOut {
             0% {
-                transform: scale(0); /* تبدأ بحجم صغير جدًا */
+                transform: scale(0);
+                opacity: 0;
             }
             100% {
-                transform: scale(8) translateX(-50px); /* تكبر إلى الحجم الطبيعي */
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* تأثير نبض خفيف بعد الظهور */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
             }
         }
 
         /* البوكس الأيمن */
         .right-box {
             position: absolute;
-            top: calc(40% + 200px); /* أسفل الصورة اليمنى مع ترك مسافة */
-            left: 50%; /* تحريك البوكس إلى منتصف الصفحة */
-            transform: translateX(-50%); /* توسيط البوكس أفقيًا */
-            width: 150px; /* عرض الصندوق */
-            height: 80px; /* ارتفاع الصندوق */
-            background-color: #001a33; /* نفس لون الخط الرأسي */
+            top: calc(40% + 200px);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 80px;
+            background-color: #001a33;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white; /* لون النص */
-            font-size: 18px; /* حجم الخط */
-            font-weight: bold; /* خط عريض */
-            border-radius: 10px; /* زوايا مدورة */
-            z-index: 3; /* فوق العناصر الأخرى */
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            z-index: 3;
+            opacity: 0;
+            animation: zoomInOut 2s ease-in-out forwards, pulse 2s ease-in-out infinite 2s;
         }
 
         /* البوكس الأيسر */
         .left-box {
             position: absolute;
-            top: calc(40% + 200px); /* نفس ارتفاع البوكس الأيمن */
-            right: calc(10% + 200px); /* إزاحة لليسار بمقدار 10% من عرض الصفحة */
-            width: 150px; /* عرض الصندوق */
-            height: 80px; /* ارتفاع الصندوق */
-            background-color: #ab4010; /* نفس لون الخط الأفقي */
+            top: calc(40% + 200px);
+            right: calc(10% + 200px);
+            width: 150px;
+            height: 80px;
+            background-color: #ab4010;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white; /* لون النص */
-            font-size: 18px; /* حجم الخط */
-            font-weight: bold; /* خط عريض */
-            border-radius: 10px; /* زوايا مدورة */
-            z-index: 3; /* فوق العناصر الأخرى */
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            z-index: 3;
+            opacity: 0;
+            animation: zoomInOut 2s ease-in-out forwards, pulse 2s ease-in-out infinite 2s;
         }
 
-        /* الصورة الجديدة في الجانب الأيسر */
-        .left-image {
-            position: absolute;
-            top: 40%; /* إنزال الصورة قليلاً */
-            left: 0; /* أقصى اليسار */
-            width: 100px; /* حجم الصورة */
-            height: auto;
-            transform: scale(6) translateX(30%); /* تكبير الصورة بنسبة 600% وتحريكها لليمين بنسبة 30% */
-            transform-origin: center; /* نقطة التحويل */
-            animation: floatUpDown 3s ease-in-out infinite; /* تأثير الصعود والنزول بشكل دوري */
-            z-index: 3; /* فوق العناصر الأخرى */
-        }
-
-        /* تأثير الصعود والنزول */
-        @keyframes floatUpDown {
-            0%, 100% {
-                transform: translateY(0) scale(6) translateX(30%); /* الوضع الطبيعي */
-            }
-            50% {
-                transform: translateY(-20px) scale(6) translateX(30%); /* الصعود لأعلى */
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="overlay"></div> <!-- الطبقة السوداء -->
-    <div class="right-line"></div> <!-- الخط الأزرق على اليمين -->
+    <div class="overlay"></div>
+    <div class="right-line"></div>
 
-    <!-- الخط السفلي مع النصوص والصور -->
     <div class="bottom-line">
-        <span class="contact-text">Contact Us</span> <!-- نص Contact Us -->
-        <img src="https://i.imgur.com/FQIZncU.png" alt="Icon 1" class="icon"> <!-- الصورة الأولى -->
-        <img src="https://i.imgur.com/11iledh.png" alt="Icon 2" class="icon"> <!-- الصورة الثانية -->
-        <img src="https://i.imgur.com/QRsal5x.png" alt="Icon 3" class="icon"> <!-- الصورة الثالثة -->
-        <img src="https://i.imgur.com/5GLmOEW.png" alt="Icon 4" class="icon"> <!-- الصورة الرابعة -->
-        <img src="https://i.imgur.com/527gjHT.png" alt="Icon 5" class="icon"> <!-- الصورة الخامسة -->
+        <span class="contact-text">Contact Us</span>
+        <img src="https://i.imgur.com/FQIZncU.png" alt="Icon 1" class="icon">
+        <img src="https://i.imgur.com/11iledh.png" alt="Icon 2" class="icon">
+        <img src="https://i.imgur.com/QRsal5x.png" alt="Icon 3" class="icon">
+        <img src="https://i.imgur.com/5GLmOEW.png" alt="Icon 4" class="icon">
+        <img src="https://i.imgur.com/527gjHT.png" alt="Icon 5" class="icon">
     </div>
 
-    <!-- الصورة الجديدة -->
     <img src="https://i.imgur.com/t5T80ii.png" alt="صورة عائمة" class="floating-image">
-
-    <!-- البوكس الأيمن -->
     <div class="right-box">About Us</div>
-
-    <!-- البوكس الأيسر -->
     <div class="left-box">About Book</div>
-
-    <!-- الصورة الجديدة في الجانب الأيسر -->
     <img src="https://i.postimg.cc/vT56FHZ8/photo-2025-01-19-00-37-46-removebg-preview.png" alt="صورة جديدة" class="left-image">
 </body>
 </html>
