@@ -5,156 +5,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthy and Delicious Recipes</title>
     <style>
+        /* تعيين الخلفية للصفحة */
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url('https://i.imgur.com/YkcWluv.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-image: url('https://i.imgur.com/YkcWluv.png'); /* الرابط المباشر للصورة */
+            background-size: cover; /* تغطية الخلفية بالكامل */
+            background-position: center; /* توسيط الصورة */
+            background-repeat: no-repeat; /* منع تكرار الصورة */
             position: relative;
             overflow: hidden;
         }
 
+        /* طبقة سوداء بشفافية 50% */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.5); /* لون أسود بشفافية 50% */
         }
 
+        /* الخط الجانبي الأيمن */
         .right-line {
             position: absolute;
             top: 0;
-            right: 0;
-            height: 100%;
-            width: 180px;
-            background: #001a33;
-            transform: translateX(100%);
-            animation: slideInRight 1.5s ease-in-out forwards;
+            right: 0; /* نقل الخط إلى اليمين */
+            height: 100%; /* طول الصفحة */
+            width: 180px; /* عرض الخط الرأسي */
+            background: #001a33; /* اللون الأزرق الغامق جدًا */
+            z-index: 1; /* الخط الأزرق تحت الخط الأصفر */
         }
 
-        @keyframes slideInRight {
-            from { transform: translateX(100%); }
-            to { transform: translateX(0); }
-        }
-
+        /* الخط السفلي */
         .bottom-line {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 90px;
-            background: #ab4010;
+            height: 90px; /* ارتفاع الخط الأفقي */
+            background: #ab4010; /* اللون الجديد (#ab4010) */
             display: flex;
             align-items: center;
-            padding-left: 20px;
-            transform: translateY(100%);
-            animation: slideUp 1.5s ease-in-out forwards;
+            padding-left: 20px; /* تباعد من اليسار */
+            z-index: 2; /* الخط الأصفر فوق الخط الأزرق */
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
-        }
-
+        /* نص Contact Us */
         .contact-text {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-            margin-right: 20px;
+            font-size: 24px; /* حجم الخط */
+            font-weight: bold; /* خط عريض */
+            color: white; /* لون النص */
+            margin-right: 20px; /* تباعد بين النص والصورة */
         }
 
+        /* الصور الدائرية */
         .icon {
-            width: 40px;
+            width: 40px; /* حجم الصورة */
             height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
+            border-radius: 50%; /* جعل الصورة دائرية */
+            margin-right: 10px; /* تباعد بين الصور */
+            transform: translateX(-50px); /* إمالة الصور لليسار بمقدار 50 بكسل */
         }
 
-        .floating-image, .left-image {
+        /* الصورة الجديدة */
+        .floating-image {
             position: absolute;
+            top: calc(40% - 70px); /* رفع الصورة لأعلى بمقدار 70 بكسل */
+            left: calc(100% - 220px + 5px); /* تحريك الصورة لليمين بمقدار 5 بكسل */
             width: 100px; /* الحجم الأصلي للصورة */
             height: auto;
-            opacity: 0;
-            animation: fadeIn 1.5s ease-in-out forwards;
+            transform: scale(0); /* تبدأ الصورة بحجم صغير جدًا */
+            transform-origin: center; /* نقطة التحويل */
+            animation: zoomIn 2s ease-in-out forwards; /* تأثير التكبير التدريجي */
+            z-index: 3; /* فوق العناصر الأخرى */
         }
 
-        .floating-image {
-            top: 20%; /* تم تعديل الموضع العمودي */
-            left: 70%; /* تم تعديل الموضع الأفقي */
-            transform: scale(6.5); /* تكبير الصورة اليمنى إلى 650% */
+        /* تأثير التكبير التدريجي */
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0); /* تبدأ بحجم صغير جدًا */
+            }
+            100% {
+                transform: scale(8) translateX(-50px); /* تكبر إلى الحجم الطبيعي */
+            }
         }
 
-        .left-image {
-            top: 20%; /* تم تعديل الموضع العمودي */
-            left: 10%; /* تم تعديل الموضع الأفقي */
-            transform: scale(6); /* تكبير الصورة اليسرى إلى 600% */
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .right-box, .left-box {
+        /* البوكس الأيمن */
+        .right-box {
             position: absolute;
-            width: 150px;
-            height: 80px;
+            top: calc(40% + 200px); /* أسفل الصورة اليمنى مع ترك مسافة */
+            left: 50%; /* تحريك البوكس إلى منتصف الصفحة */
+            transform: translateX(-50%); /* توسيط البوكس أفقيًا */
+            width: 150px; /* عرض الصندوق */
+            height: 80px; /* ارتفاع الصندوق */
+            background-color: #001a33; /* نفس لون الخط الرأسي */
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 10px;
-            opacity: 0;
-            transform: scale(0);
-            animation: popIn 2s ease-in-out forwards, pulse 3s infinite ease-in-out 2s;
+            color: white; /* لون النص */
+            font-size: 18px; /* حجم الخط */
+            font-weight: bold; /* خط عريض */
+            border-radius: 10px; /* زوايا مدورة */
+            z-index: 3; /* فوق العناصر الأخرى */
         }
 
-        .right-box {
-            top: calc(40% + 200px);
-            left: 50%;
-            background-color: #001a33;
-            transform: translateX(-50%) scale(0);
-        }
-
+        /* البوكس الأيسر */
         .left-box {
-            top: calc(40% + 200px);
-            right: calc(10% + 200px);
-            background-color: #ab4010;
+            position: absolute;
+            top: calc(40% + 200px); /* نفس ارتفاع البوكس الأيمن */
+            right: calc(10% + 200px); /* إزاحة لليسار بمقدار 10% من عرض الصفحة */
+            width: 150px; /* عرض الصندوق */
+            height: 80px; /* ارتفاع الصندوق */
+            background-color: #ab4010; /* نفس لون الخط الأفقي */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; /* لون النص */
+            font-size: 18px; /* حجم الخط */
+            font-weight: bold; /* خط عريض */
+            border-radius: 10px; /* زوايا مدورة */
+            z-index: 3; /* فوق العناصر الأخرى */
         }
 
-        @keyframes popIn {
-            from { transform: scale(0); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+        /* الصورة الجديدة في الجانب الأيسر */
+        .left-image {
+            position: absolute;
+            top: 40%; /* إنزال الصورة قليلاً */
+            left: 0; /* أقصى اليسار */
+            width: 100px; /* حجم الصورة */
+            height: auto;
+            transform: scale(6) translateX(30%); /* تكبير الصورة بنسبة 600% وتحريكها لليمين بنسبة 30% */
+            transform-origin: center; /* نقطة التحويل */
+            animation: floatUpDown 3s ease-in-out infinite; /* تأثير الصعود والنزول بشكل دوري */
+            z-index: 3; /* فوق العناصر الأخرى */
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        /* تأثير الصعود والنزول */
+        @keyframes floatUpDown {
+            0%, 100% {
+                transform: translateY(0) scale(6) translateX(30%); /* الوضع الطبيعي */
+            }
+            50% {
+                transform: translateY(-20px) scale(6) translateX(30%); /* الصعود لأعلى */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="overlay"></div>
-    <div class="right-line"></div>
+    <div class="overlay"></div> <!-- الطبقة السوداء -->
+    <div class="right-line"></div> <!-- الخط الأزرق على اليمين -->
+
+    <!-- الخط السفلي مع النصوص والصور -->
     <div class="bottom-line">
-        <span class="contact-text">Contact Us</span>
-        <img src="https://i.imgur.com/FQIZncU.png" alt="Icon 1" class="icon">
-        <img src="https://i.imgur.com/11iledh.png" alt="Icon 2" class="icon">
-        <img src="https://i.imgur.com/QRsal5x.png" alt="Icon 3" class="icon">
-        <img src="https://i.imgur.com/5GLmOEW.png" alt="Icon 4" class="icon">
-        <img src="https://i.imgur.com/527gjHT.png" alt="Icon 5" class="icon">
+        <span class="contact-text">Contact Us</span> <!-- نص Contact Us -->
+        <img src="https://i.imgur.com/FQIZncU.png" alt="Icon 1" class="icon"> <!-- الصورة الأولى -->
+        <img src="https://i.imgur.com/11iledh.png" alt="Icon 2" class="icon"> <!-- الصورة الثانية -->
+        <img src="https://i.imgur.com/QRsal5x.png" alt="Icon 3" class="icon"> <!-- الصورة الثالثة -->
+        <img src="https://i.imgur.com/5GLmOEW.png" alt="Icon 4" class="icon"> <!-- الصورة الرابعة -->
+        <img src="https://i.imgur.com/527gjHT.png" alt="Icon 5" class="icon"> <!-- الصورة الخامسة -->
     </div>
 
+    <!-- الصورة الجديدة -->
     <img src="https://i.imgur.com/t5T80ii.png" alt="صورة عائمة" class="floating-image">
+
+    <!-- البوكس الأيمن -->
     <div class="right-box">About Us</div>
+
+    <!-- البوكس الأيسر -->
     <div class="left-box">About Book</div>
+
+    <!-- الصورة الجديدة في الجانب الأيسر -->
     <img src="https://i.postimg.cc/vT56FHZ8/photo-2025-01-19-00-37-46-removebg-preview.png" alt="صورة جديدة" class="left-image">
 </body>
 </html>
