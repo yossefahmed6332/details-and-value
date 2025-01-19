@@ -97,7 +97,8 @@
         .right-box {
             position: absolute;
             top: calc(40% + 200px); /* أسفل الصورة اليمنى مع ترك مسافة */
-            left: calc(100% - 180px - 40px); /* إزاحة لليسار بمقدار 40px */
+            left: 50%; /* تحريك البوكس إلى منتصف الصفحة */
+            transform: translateX(-50%); /* توسيط البوكس أفقيًا */
             width: 150px; /* عرض الصندوق */
             height: 80px; /* ارتفاع الصندوق */
             background-color: #001a33; /* نفس لون الخط الرأسي */
