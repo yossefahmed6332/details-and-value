@@ -80,18 +80,19 @@
             width: 100px; /* الحجم الأصلي للصورة */
             height: auto;
             opacity: 0;
-            transform: scale(6); /* تكبير الصورة إلى 600% */
             animation: fadeIn 1.5s ease-in-out forwards;
         }
 
         .floating-image {
             top: calc(40% - 70px);
-            left: calc(80% - 220px); /* تم تقريب الصورة اليمنى إلى اليسار */
+            left: calc(96% - 220px);
+            transform: scale(6.5); /* تكبير الصورة اليمنى إلى 650% */
         }
 
         .left-image {
             top: 40%;
-            left: 10%; /* تم تقريب الصورة اليسرى إلى اليمين */
+            left: 8%; /* تم تقريب الصورة اليسرى إلى اليمين */
+            transform: scale(6); /* تكبير الصورة اليسرى إلى 600% */
         }
 
         @keyframes fadeIn {
