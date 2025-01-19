@@ -26,7 +26,7 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
 
-        /* الخط الجانبي الأيمن (يظهر من اليمين إلى اليسار) */
+        /* الخط الرأسي يظهر من اليمين إلى اليسار */
         .right-line {
             position: absolute;
             top: 0;
@@ -34,21 +34,16 @@
             height: 100%;
             width: 180px;
             background: #001a33;
-            z-index: 1;
             transform: translateX(100%);
-            animation: slideLeft 1.5s ease-in-out forwards;
+            animation: slideInRight 1.5s ease-in-out forwards;
         }
 
-        @keyframes slideLeft {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(0);
-            }
+        @keyframes slideInRight {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
         }
 
-        /* الخط السفلي (يظهر من الأسفل إلى الأعلى) */
+        /* الخط الأفقي يظهر من الأسفل إلى الأعلى */
         .bottom-line {
             position: absolute;
             bottom: 0;
@@ -59,18 +54,13 @@
             display: flex;
             align-items: center;
             padding-left: 20px;
-            z-index: 2;
             transform: translateY(100%);
             animation: slideUp 1.5s ease-in-out forwards;
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-            }
-            to {
-                transform: translateY(0);
-            }
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
         }
 
         .contact-text {
@@ -85,114 +75,76 @@
             height: 40px;
             border-radius: 50%;
             margin-right: 10px;
-            transform: translateX(-50px);
         }
 
-        /* الصورة اليمنى (تظهر بتأثير fadeIn خلال 1.5 ثانية) */
-        .floating-image {
+        /* الصور تظهر بتأثير Fade In لمدة 1.5 ثانية */
+        .floating-image, .left-image {
             position: absolute;
+            width: 100px;
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        .floating-image {
             top: calc(40% - 70px);
             left: calc(100% - 220px + 5px);
-            width: 100px;
-            height: auto;
-            opacity: 0;
-            animation: fadeIn 1.5s ease-in-out forwards;
-            z-index: 3;
         }
 
-        /* الصورة اليسرى (تظهر بتأثير fadeIn خلال 1.5 ثانية) */
         .left-image {
-            position: absolute;
             top: 40%;
             left: 0;
-            width: 100px;
-            height: auto;
-            opacity: 0;
-            animation: fadeIn 1.5s ease-in-out forwards;
-            z-index: 3;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        /* تأثير تكبير متدرج مع نبض دوري */
-        @keyframes zoomInOut {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* تأثير نبض خفيف بعد الظهور */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* البوكس الأيمن */
-        .right-box {
+        /* البوكسات تكبر من حجم صفر إلى الحجم الكامل مع تأثير متكرر */
+        .right-box, .left-box {
             position: absolute;
+            width: 150px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            opacity: 0;
+            transform: scale(0);
+            animation: popIn 2s ease-in-out forwards, pulse 3s infinite ease-in-out 2s;
+        }
+
+        .right-box {
             top: calc(40% + 200px);
             left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 80px;
             background-color: #001a33;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 10px;
-            z-index: 3;
-            opacity: 0;
-            animation: zoomInOut 2s ease-in-out forwards, pulse 2s ease-in-out infinite 2s;
+            transform: translateX(-50%) scale(0);
         }
 
-        /* البوكس الأيسر */
         .left-box {
-            position: absolute;
             top: calc(40% + 200px);
             right: calc(10% + 200px);
-            width: 150px;
-            height: 80px;
             background-color: #ab4010;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 10px;
-            z-index: 3;
-            opacity: 0;
-            animation: zoomInOut 2s ease-in-out forwards, pulse 2s ease-in-out infinite 2s;
         }
 
+        @keyframes popIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
     <div class="right-line"></div>
-
     <div class="bottom-line">
         <span class="contact-text">Contact Us</span>
         <img src="https://i.imgur.com/FQIZncU.png" alt="Icon 1" class="icon">
