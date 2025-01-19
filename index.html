@@ -81,7 +81,7 @@
             height: auto;
             opacity: 0;
             transform: scale(6);
-            animation: fadeIn 1.5s ease-in-out forwards;
+            animation: fadeIn 1.5s ease-in-out forwards, moveImages 2s ease-in-out forwards 1.5s;
         }
 
         .floating-image {
@@ -97,6 +97,20 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+
+        @keyframes moveImages {
+            0% { transform: translateX(0) scale(1); }
+            100% {
+                transform: translateX(-5%) scale(1); /* تحريك الصورة اليمنى ناحية اليسار */
+            }
+        }
+
+        @keyframes moveLeftImage {
+            0% { transform: translateX(0) scale(1); }
+            100% {
+                transform: translateX(5%) scale(1); /* تحريك الصورة اليسرى ناحية اليمين */
+            }
         }
 
         .right-box, .left-box {
