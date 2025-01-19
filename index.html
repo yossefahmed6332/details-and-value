@@ -77,10 +77,11 @@
 
         .floating-image, .left-image {
             position: absolute;
-            width: 600px; /* تم تكبير الصورة إلى 600px */
-            height: auto; /* للحفاظ على نسبة العرض إلى الارتفاع */
+            width: 100px; /* الحجم الأصلي للصورة */
+            height: auto;
             opacity: 0;
-            animation: fadeIn 1.5s ease-in-out forwards, moveImages 2s ease-in-out forwards 1.5s;
+            transform: scale(3); /* تكبير الصورة إلى 300% */
+            animation: fadeIn 1.5s ease-in-out forwards;
         }
 
         .floating-image {
@@ -96,20 +97,6 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        @keyframes moveImages {
-            0% { transform: translateX(0) scale(1); }
-            100% {
-                transform: translateX(-5%) scale(1); /* تحريك الصورة اليمنى ناحية اليسار */
-            }
-        }
-
-        @keyframes moveLeftImage {
-            0% { transform: translateX(0) scale(1); }
-            100% {
-                transform: translateX(5%) scale(1); /* تحريك الصورة اليسرى ناحية اليمين */
-            }
         }
 
         .right-box, .left-box {
