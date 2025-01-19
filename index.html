@@ -87,19 +87,19 @@
             left: calc(100% - 220px + 5px); /* تحريك الصورة لليمين بمقدار 5 بكسل */
             width: 100px; /* الحجم الأصلي للصورة */
             height: auto;
-            transform: scale(8) translateX(-50px); /* تكبير الصورة بنسبة 800% وإمالتها لليسار */
+            transform: scale(0); /* تبدأ الصورة بحجم صغير جدًا */
             transform-origin: center; /* نقطة التحويل */
-            animation: fadeIn 3s ease-in-out forwards; /* تأثير الظهور التدريجي فقط */
+            animation: zoomIn 2s ease-in-out forwards; /* تأثير التكبير التدريجي */
             z-index: 3; /* فوق العناصر الأخرى */
         }
 
-        /* تأثير الظهور التدريجي */
-        @keyframes fadeIn {
+        /* تأثير التكبير التدريجي */
+        @keyframes zoomIn {
             0% {
-                opacity: 0; /* تبدأ غير مرئية */
+                transform: scale(0); /* تبدأ بحجم صغير جدًا */
             }
             100% {
-                opacity: 1; /* تصبح مرئية بالكامل */
+                transform: scale(8) translateX(-50px); /* تكبر إلى الحجم الطبيعي */
             }
         }
 
@@ -107,7 +107,7 @@
         .right-box {
             position: absolute;
             top: calc(40% + 200px); /* أسفل الصورة اليمنى مع ترك مسافة */
-            right: calc(4% + 20px); /* إزاحة لليسار بمقدار 4% من عرض الصفحة */
+            right: calc(5% + 20px); /* إزاحة لليسار بمقدار 5% من عرض الصفحة */
             width: 150px; /* عرض الصندوق */
             height: 80px; /* ارتفاع الصندوق */
             background-color: #001a33; /* نفس لون الخط الرأسي */
