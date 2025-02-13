@@ -141,15 +141,21 @@
         }
 
         /* الكود المضاف */
-        .astronaut-image {
+        .image-part {
             position: absolute;
-            width: 200px; /* نفس حجم الصورة على اليسار */
-            height: auto;
+            overflow: hidden;
             transition: transform 0.3s ease-in-out;
         }
 
-        .astronaut-image:hover {
-            transform: scale(1.5);
+        .image-part img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-part:hover {
+            transform: scale(1.2);
+            z-index: 100;
         }
     </style>
 </head>
@@ -171,13 +177,25 @@
     <!-- الصورة على اليسار -->
     <img src="https://i.postimg.cc/vT56FHZ8/photo-2025-01-19-00-37-46-removebg-preview.png" alt="صورة على اليسار" style="position: absolute; top: 20%; left: 10%; width: 200px; height: auto;">
 
-    <!-- الصور الجديدة المضافة -->
-    <img src="https://i.imgur.com/GyxdqBe.png" class="astronaut-image" style="left: 50px; top: 100px;"> <!-- الموقع الجديد للصورة الأولى -->
-    <img src="https://i.imgur.com/H6oRrrg.png" class="astronaut-image" style="left: 300px; top: 400px;"> <!-- الموقع الجديد للصورة الثانية -->
-    <img src="https://i.imgur.com/IzJJIAa.png" class="astronaut-image" style="left: 1400px; top: 220px;">
-    <img src="https://i.imgur.com/o4e0OBC.png" class="astronaut-image" style="left: 1620px; top: 230px;">
-    <img src="https://i.imgur.com/wpKkPQz.png" class="astronaut-image" style="left: 1270px; top: 480px;">
-    <img src="https://i.imgur.com/GMqNN6L.png" class="astronaut-image" style="left: 1600px; top: 510px;">
+    <!-- الصورة الجديدة المقسمة إلى ستة أجزاء -->
+    <div class="image-part" style="left: 10%; top: 20%; width: 266px; height: 190px;">
+        <img src="https://i.imgur.com/8B8mH6c.png" alt="Part 1">
+    </div>
+    <div class="image-part" style="left: calc(10% + 266px); top: 20%; width: 134px; height: 190px;">
+        <img src="https://i.imgur.com/8B8mH6c.png" alt="Part 2">
+    </div>
+    <div class="image-part" style="left: 10%; top: calc(20% + 190px); width: 266px; height: 210px;">
+        <img src="https://i.imgur.com/8B8mH6c.png" alt="Part 3">
+    </div>
+    <div class="image-part" style="left: calc(10% + 266px); top: calc(20% + 190px); width: 134px; height: 210px;">
+        <img src="https://i.imgur.com/8B8mH6c.png" alt="Part 4">
+    </div>
+    <div class="image-part" style="left: 10%; top: calc(20% + 400px); width: 266px; height: 190px;">
+        <img src="https://i.imgur.com/8B8mH6c.png" alt="Part 5">
+    </div>
+    <div class="image-part" style="left: calc(10% + 266px); top: calc(20% + 400px); width: 134px; height: 190px;">
+        <img src="https://i.imgur.com/8B8mH6c.png" alt="Part 6">
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
