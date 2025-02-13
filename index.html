@@ -23,7 +23,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.5); /* 50% شفافية سوداء */
         }
 
         .right-line {
@@ -33,13 +33,13 @@
             height: 100%;
             width: 180px;
             background: #001a33;
-            transform: translateX(100%); /* يبدأ الخط خارج الشاشة */
+            transform: translateX(100%);
             animation: slideInRight 1.5s ease-in-out forwards;
         }
 
         @keyframes slideInRight {
-            from { transform: translateX(100%); } /* يبدأ من خارج الشاشة */
-            to { transform: translateX(0); } /* ينتهي عند حافة الشاشة */
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
         }
 
         .bottom-line {
@@ -52,13 +52,13 @@
             display: flex;
             align-items: center;
             padding-left: 20px;
-            transform: translateY(100%); /* يبدأ الخط خارج الشاشة */
+            transform: translateY(100%);
             animation: slideUp 1.5s ease-in-out forwards;
         }
 
         @keyframes slideUp {
-            from { transform: translateY(100%); } /* يبدأ من خارج الشاشة */
-            to { transform: translateY(0); } /* ينتهي عند حافة الشاشة */
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
         }
 
         .contact-text {
@@ -75,29 +75,23 @@
             margin-right: 10px;
         }
 
-        .floating-image, .left-image {
+        .floating-image {
             position: absolute;
-            width: 100px; /* الحجم الأصلي للصورة */
+            width: 100px;
             height: auto;
             opacity: 0;
-            animation: fadeIn 1.5s ease-in-out forwards; /* ظهور تدريجي */
+            animation: fadeIn 1.5s ease-in-out forwards;
         }
 
         .floating-image {
-            top: calc(40% - 70px); /* الموضع الرأسي الأصلي */
-            left: calc(86% - 220px); /* تم تقريب الصورة اليمنى إلى اليسار بنسبة 10% */
-            transform: scale(6.5); /* تكبير الصورة اليمنى */
-        }
-
-        .left-image {
-            top: 40%; /* الموضع الرأسي الأصلي */
-            left: 14%; /* تم تقريب الصورة اليسرى إلى اليمين بنسبة 10% */
-            transform: scale(6); /* تكبير الصورة اليسرى */
+            top: calc(40% - 70px);
+            left: calc(86% - 220px);
+            transform: scale(6.5);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; } /* يبدأ غير مرئي */
-            to { opacity: 1; } /* يصبح مرئيًا */
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .right-box, .left-box {
@@ -138,6 +132,25 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
         }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        /* الكود المضاف */
+        .astronaut-image {
+            position: absolute;
+            width: 200px; /* نفس حجم الصورة على اليسار */
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .astronaut-image:hover {
+            transform: scale(1.5);
+        }
     </style>
 </head>
 <body>
@@ -152,9 +165,38 @@
         <img src="https://i.imgur.com/527gjHT.png" alt="Icon 5" class="icon">
     </div>
 
+    <!-- الصورة العائمة على اليمين -->
     <img src="https://i.imgur.com/t5T80ii.png" alt="صورة عائمة" class="floating-image">
-    <div class="right-box">About Us</div>
-    <div class="left-box">About Book</div>
-    <img src="https://i.postimg.cc/vT56FHZ8/photo-2025-01-19-00-37-46-removebg-preview.png" alt="صورة جديدة" class="left-image">
+
+    <!-- الصورة على اليسار -->
+    <img src="https://i.postimg.cc/vT56FHZ8/photo-2025-01-19-00-37-46-removebg-preview.png" alt="صورة على اليسار" style="position: absolute; top: 20%; left: 10%; width: 200px; height: auto;">
+
+    <!-- الصور الجديدة المضافة -->
+    <img src="https://i.imgur.com/GyxdqBe.png" class="astronaut-image" style="left: 250px; top: 380px;">
+    <img src="https://i.imgur.com/H6oRrrg.png" class="astronaut-image" style="left: 1270px; top: 210px;">
+    <img src="https://i.imgur.com/IzJJIAa.png" class="astronaut-image" style="left: 1400px; top: 220px;">
+    <img src="https://i.imgur.com/o4e0OBC.png" class="astronaut-image" style="left: 1620px; top: 230px;">
+    <img src="https://i.imgur.com/wpKkPQz.png" class="astronaut-image" style="left: 1270px; top: 480px;">
+    <img src="https://i.imgur.com/GMqNN6L.png" class="astronaut-image" style="left: 1600px; top: 510px;">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // المشهد، الكاميرا، والعرض
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // إعداد الكاميرا
+        camera.position.z = 5;
+
+        // عرض المشهد
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
 </body>
 </html>
