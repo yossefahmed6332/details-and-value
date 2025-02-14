@@ -139,26 +139,6 @@
             left: 0;
             z-index: 10;
         }
-
-        /* الكود المضاف */
-        .astronaut-image {
-            position: absolute;
-            width: 200px; /* نفس حجم الصورة على اليمين */
-            height: auto;
-            transition: transform 0.3s ease-in-out;
-            transform: scale(4); /* تكبير الصورة بنسبة 400% */
-        }
-
-        .astronaut-image:hover {
-            transform: scale(4.5); /* تكبير إضافي عند التمرير */
-        }
-
-        /* التعديل الجديد */
-        .your-image-class {
-            position: absolute;
-            left: -25px; /* تحريك لليسار */
-            top: -12px;  /* تحريك للأعلى */
-        }
     </style>
 </head>
 <body>
@@ -177,10 +157,7 @@
     <img src="https://i.imgur.com/t5T80ii.png" alt="صورة عائمة" class="floating-image">
 
     <!-- الصورة على اليسار -->
-    <img src="https://i.postimg.cc/vT56FHZ8/photo-2025-01-19-00-37-46-removebg-preview.png" alt="صورة على اليسار" style="position: absolute; top: 20%; left: 10%; width: 200px; height: auto;">
-
-    <!-- الصورة الجديدة على اليمين -->
-    <img src="https://i.postimg.cc/Twb4MR9j/t5-T80ii-2-removebg-preview-LE-upscale-balanced-x4-1-removebg-preview.png" class="astronaut-image" style="left: calc(86% - 220px); top: calc(40% - 70px); width: 200px; height: auto;">
+    <img src="https://i.postimg.cc/vT56FHZ8/photo-2025-01-19-00-37-46-removebg-preview.png" alt="صورة على اليسار" style="position: absolute; top: 20%; left: 10%; width: 200px; height: auto; transform: scale(4);">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
