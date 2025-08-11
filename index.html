@@ -5,55 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ritoya Doctor Care</title>
     <style>
+        /* إعدادات عامة */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f7f5f0;
+            font-family: 'Tahoma', Arial, sans-serif;
+            background-color: #faf8f4;
             color: #333;
         }
+
+        /* رأس الصفحة */
         header {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-image.jpg') no-repeat center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+                        url('hair-care-bg.jpg') no-repeat center/cover;
             color: white;
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px;
         }
         header h1 {
             font-size: 3rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
         header p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.6;
         }
+
+        /* قسم المميزات */
         section {
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
+        }
+        section h2 {
+            font-size: 2rem;
+            color: #3d5a40;
+            margin-bottom: 30px;
         }
         .features {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 500px;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1000px;
             margin: auto;
         }
         .feature {
-            background: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            flex: 1 1 calc(33% - 40px);
+            min-width: 250px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .feature img {
+            width: 60px;
+            margin-bottom: 15px;
+        }
+        .feature h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #4a7856;
+        }
+        .feature p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* زر */
         a.button {
             display: inline-block;
-            margin-top: 20px;
-            background-color: #4CAF50;
+            margin-top: 35px;
+            background-color: #6b8e4e;
             color: white;
-            padding: 12px 30px;
-            border-radius: 5px;
+            padding: 14px 35px;
+            border-radius: 30px;
             text-decoration: none;
             font-size: 1.1rem;
-            transition: background 0.3s;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
         }
         a.button:hover {
-            background-color: #45a049;
+            background-color: #5c7c43;
+            transform: scale(1.05);
+        }
+
+        /* تجاوب الهواتف */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .feature {
+                flex: 1 1 100%;
+                max-width: 350px;
+            }
         }
     </style>
 </head>
@@ -61,17 +117,29 @@
 
 <header>
     <h1>Ritoya Doctor Care</h1>
-    <p>من نهر الطبيعة نستسقي بمنتجاتنا</p>
+    <p>جمال شعرك يبدأ من الطبيعة — منتجاتنا مصممة بعناية لتغذي وتعتني بشعرك بطرق صحية وآمنة.</p>
 </header>
 
 <section>
-    <h2>مميزاتنا</h2>
+    <h2>لماذا تختار منتجاتنا؟</h2>
     <div class="features">
-        <div class="feature">مكونات طبيعية</div>
-        <div class="feature">صديقة للبيئة</div>
-        <div class="feature">آمنة تمامًا على البشرة والشعر</div>
+        <div class="feature">
+            <img src="natural-icon.png" alt="مكونات طبيعية">
+            <h3>مكونات طبيعية 100%</h3>
+            <p>نختار أجود الزيوت والأعشاب الطبيعية لضمان عناية صحية لشعرك.</p>
+        </div>
+        <div class="feature">
+            <img src="eco-friendly-icon.png" alt="صديقة للبيئة">
+            <h3>صديقة للبيئة</h3>
+            <p>منتجاتنا قابلة للتحلل وصديقة للكوكب، لأن الجمال لا يجب أن يضر الطبيعة.</p>
+        </div>
+        <div class="feature">
+            <img src="safe-icon.png" alt="آمنة للبشرة والشعر">
+            <h3>آمنة تمامًا</h3>
+            <p>خالية من المواد الكيميائية الضارة، مناسبة لجميع أنواع الشعر حتى الحساس منها.</p>
+        </div>
     </div>
-    <a href="index.html" class="button">اذهب للصفحة الرئيسية</a>
+    <a href="index.html" class="button">استكشف منتجاتنا</a>
 </section>
 
 </body>
