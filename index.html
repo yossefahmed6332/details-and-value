@@ -1,78 +1,91 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>منتجات العناية بالشعر</title>
-<style>
-    body {
-        margin: 0;
-        font-family: 'Tahoma', sans-serif;
-    }
-    header {
-        background-color: #c3bdcc; /* اللون العلوي */
-        color: #fff;
-        text-align: center;
-        padding: 60px 20px;
-    }
-    header h1 {
-        font-size: 2.5em;
-        margin: 0;
-    }
-    header p {
-        font-size: 1.2em;
-        margin-top: 10px;
-    }
-    .container {
-        background-color: #ffffff; /* اللون السفلي */
-        padding: 40px 20px;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-    .box {
-        background-color: #f8f8f8;
-        border-radius: 10px;
-        padding: 20px;
-        width: 280px;
-        text-align: center;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 1s forwards;
-    }
-    .box:nth-child(1) { animation-delay: 0.3s; }
-    .box:nth-child(2) { animation-delay: 0.6s; }
-    .box:nth-child(3) { animation-delay: 0.9s; }
-    @keyframes fadeInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منتجات العناية بالشعر</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
         }
-    }
-</style>
+
+        header {
+            background-color: #c3bdcc; /* اللون الجديد */
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        section {
+            background-color: #ffffff; /* اللون الجديد */
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        .box:nth-child(1) { animation-delay: 0.3s; }
+        .box:nth-child(2) { animation-delay: 0.6s; }
+        .box:nth-child(3) { animation-delay: 0.9s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>منتجات طبيعية للعناية بشعرك</h1>
-    <p>جمال وصحة شعرك تبدأ من الطبيعة</p>
-</header>
+    <header>
+        <h1>مرحبا بك في موقعنا</h1>
+        <p>أفضل منتجات العناية بالشعر الطبيعية</p>
+    </header>
 
-<div class="container">
-    <div class="box">
-        <h2>زيوت طبيعية</h2>
-        <p>تغذية عميقة من الجذور حتى الأطراف.</p>
-    </div>
-    <div class="box">
-        <h2>شامبو عشبي</h2>
-        <p>تنظيف لطيف مع حماية للشعر.</p>
-    </div>
-    <div class="box">
-        <h2>بلسم ومرطبات</h2>
-        <p>ترطيب يدوم ويترك شعرك لامعًا وصحيًا.</p>
-    </div>
-</div>
+    <section>
+        <div class="box-container">
+            <div class="box">
+                <h3>منتج 1</h3>
+                <p>وصف مختصر عن المنتج.</p>
+            </div>
+            <div class="box">
+                <h3>منتج 2</h3>
+                <p>وصف مختصر عن المنتج.</p>
+            </div>
+            <div class="box">
+                <h3>منتج 3</h3>
+                <p>وصف مختصر عن المنتج.</p>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
