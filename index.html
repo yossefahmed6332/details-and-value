@@ -1,148 +1,78 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritoya Doctor Care</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Tahoma', Arial, sans-serif;
-            background-color: #faf8f4;
-            color: #333;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منتجات العناية بالشعر</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Tahoma', sans-serif;
+    }
+    header {
+        background-color: #c3bdcc; /* اللون العلوي */
+        color: #fff;
+        text-align: center;
+        padding: 60px 20px;
+    }
+    header h1 {
+        font-size: 2.5em;
+        margin: 0;
+    }
+    header p {
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+    .container {
+        background-color: #ffffff; /* اللون السفلي */
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .box {
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        padding: 20px;
+        width: 280px;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s forwards;
+    }
+    .box:nth-child(1) { animation-delay: 0.3s; }
+    .box:nth-child(2) { animation-delay: 0.6s; }
+    .box:nth-child(3) { animation-delay: 0.9s; }
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-
-        /* رأس الصفحة */
-        header {
-            background: #d3c5c1;
-            color: #3b2f2f;
-            text-align: center;
-            padding: 120px 20px;
-        }
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-        header p {
-            font-size: 1.3rem;
-            max-width: 600px;
-            margin: auto;
-            line-height: 1.6;
-        }
-
-        /* قسم المميزات */
-        section {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #8b5e3c;
-            color: white;
-        }
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            max-width: 1000px;
-            margin: auto;
-        }
-        .feature {
-            background: white;
-            color: #333;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            flex: 1 1 calc(33% - 40px);
-            min-width: 250px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s forwards;
-        }
-        .feature:nth-child(1) { animation-delay: 0.2s; }
-        .feature:nth-child(2) { animation-delay: 0.5s; }
-        .feature:nth-child(3) { animation-delay: 0.8s; }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .feature h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #8b5e3c;
-        }
-        .feature p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        /* زر */
-        a.button {
-            display: inline-block;
-            margin-top: 35px;
-            background-color: #8b5e3c;
-            color: white;
-            padding: 14px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.3s;
-        }
-        a.button:hover {
-            background-color: #734d31;
-            transform: scale(1.05);
-        }
-
-        /* تجاوب الهواتف */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-            .features {
-                flex-direction: column;
-                align-items: center;
-            }
-            .feature {
-                flex: 1 1 100%;
-                max-width: 350px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
 <header>
-    <h1>Ritoya Doctor Care</h1>
-    <p>جمال شعرك وبشرتك وجسدك يبدأ من الطبيعة — منتجاتنا مصممة بعناية لتغذي وتعتني بكِ بطرق صحية وآمنة.</p>
+    <h1>منتجات طبيعية للعناية بشعرك</h1>
+    <p>جمال وصحة شعرك تبدأ من الطبيعة</p>
 </header>
 
-<section>
-    <h2>لماذا تختار منتجاتنا؟</h2>
-    <div class="features">
-        <div class="feature">
-            <h3>مكونات طبيعية 100%</h3>
-            <p>نختار أجود الزيوت والأعشاب الطبيعية لضمان عناية صحية حقيقية.</p>
-        </div>
-        <div class="feature">
-            <h3>صديقة للبيئة</h3>
-            <p>منتجاتنا قابلة للتحلل وصديقة للكوكب، لأن الجمال لا يجب أن يضر الطبيعة.</p>
-        </div>
-        <div class="feature">
-            <h3>آمنة تمامًا</h3>
-            <p>خالية من المواد الكيميائية الضارة، ومناسبة لجميع أنواع الشعر والبشرة.</p>
-        </div>
+<div class="container">
+    <div class="box">
+        <h2>زيوت طبيعية</h2>
+        <p>تغذية عميقة من الجذور حتى الأطراف.</p>
     </div>
-    <a href="index.html" class="button">استكشف منتجاتنا</a>
-</section>
+    <div class="box">
+        <h2>شامبو عشبي</h2>
+        <p>تنظيف لطيف مع حماية للشعر.</p>
+    </div>
+    <div class="box">
+        <h2>بلسم ومرطبات</h2>
+        <p>ترطيب يدوم ويترك شعرك لامعًا وصحيًا.</p>
+    </div>
+</div>
 
 </body>
 </html>
