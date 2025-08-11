@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ritoya Doctor Care</title>
     <style>
-        /* إعدادات عامة */
         body {
             margin: 0;
             font-family: 'Tahoma', Arial, sans-serif;
@@ -15,9 +14,8 @@
 
         /* رأس الصفحة */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
-                        url('hair-care-bg.jpg') no-repeat center/cover;
-            color: white;
+            background: linear-gradient(135deg, #f2e3c6, #e6cfa5);
+            color: #3b2f2f;
             text-align: center;
             padding: 120px 20px;
         }
@@ -37,6 +35,7 @@
         section {
             padding: 50px 20px;
             text-align: center;
+            background-color: #eaf3e0;
         }
         section h2 {
             font-size: 2rem;
@@ -58,16 +57,22 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             flex: 1 1 calc(33% - 40px);
             min-width: 250px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
         }
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        /* التأثير التدريجي */
+        .feature:nth-child(1) { animation-delay: 0.2s; }
+        .feature:nth-child(2) { animation-delay: 0.5s; }
+        .feature:nth-child(3) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .feature img {
-            width: 60px;
-            margin-bottom: 15px;
-        }
+
         .feature h3 {
             font-size: 1.2rem;
             margin-bottom: 10px;
@@ -117,26 +122,23 @@
 
 <header>
     <h1>Ritoya Doctor Care</h1>
-    <p>جمال شعرك يبدأ من الطبيعة — منتجاتنا مصممة بعناية لتغذي وتعتني بشعرك بطرق صحية وآمنة.</p>
+    <p>جمال شعرك وبشرتك وجسدك يبدأ من الطبيعة — منتجاتنا مصممة بعناية لتغذي وتعتني بكِ بطرق صحية وآمنة.</p>
 </header>
 
 <section>
     <h2>لماذا تختار منتجاتنا؟</h2>
     <div class="features">
         <div class="feature">
-            <img src="natural-icon.png" alt="مكونات طبيعية">
             <h3>مكونات طبيعية 100%</h3>
-            <p>نختار أجود الزيوت والأعشاب الطبيعية لضمان عناية صحية لشعرك.</p>
+            <p>نختار أجود الزيوت والأعشاب الطبيعية لضمان عناية صحية حقيقية.</p>
         </div>
         <div class="feature">
-            <img src="eco-friendly-icon.png" alt="صديقة للبيئة">
             <h3>صديقة للبيئة</h3>
             <p>منتجاتنا قابلة للتحلل وصديقة للكوكب، لأن الجمال لا يجب أن يضر الطبيعة.</p>
         </div>
         <div class="feature">
-            <img src="safe-icon.png" alt="آمنة للبشرة والشعر">
             <h3>آمنة تمامًا</h3>
-            <p>خالية من المواد الكيميائية الضارة، مناسبة لجميع أنواع الشعر حتى الحساس منها.</p>
+            <p>خالية من المواد الكيميائية الضارة، ومناسبة لجميع أنواع الشعر والبشرة.</p>
         </div>
     </div>
     <a href="index.html" class="button">استكشف منتجاتنا</a>
